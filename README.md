@@ -58,6 +58,13 @@ This script creates the protobuf street forecast .py necessary to decode the For
    python create_protobuf_street_forecast.py
    ```
 
+#### forecast_decoding_examples
+
+- forecast_decoding_examples.py : this script demonstrates how to download and decode a protobuf message for street forecasts. It includes functions to download a file, dynamically import the protobuf file, read the downloaded data, and decode the protobuf message.
+Dependencies: Ensure that the required protobuf file (street_forecast_pb2.py) is located at the specified path.
+
+- request_flows_forecast.py : this script demonstrates how to make a GET request to the PTV Flows API to retrieve real-time forecast data. The user is prompted to enter their PTV API key.
+
 Ensure you have set up the necessary configurations as mentioned in the script comments.
 
 ## License

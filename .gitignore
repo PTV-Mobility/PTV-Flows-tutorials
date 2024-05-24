@@ -1,3 +1,5 @@
 
 /python/create_protobuf_street_forecast/bin
 /python/create_protobuf_street_forecast/include
+python/forecast decoding examples/forecast_response
+python/create_protobuf_street_forecast/__pycache__/street_forecast_pb2.cpython-312.pyc

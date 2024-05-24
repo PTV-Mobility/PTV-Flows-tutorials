@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+        import "google/protobuf/timestamp.proto";
+
+        package com.ptvgroup.mlf.common.messagehandling.forecast;
+
+
+        message ForecastData {
+
+        	message StreetForecast {  
+        		int32 id =1;  
+        		int32 fromNode=2;  
+        		repeated Forecast forecast=3;
+        		string openLRcode=4;
+        	} 
+
+        	message Forecast {
+        		google.protobuf.Timestamp start=1;
+        		google.protobuf.Timestamp end=2;
+        		bool flow_valid = 3;
+        		double flow=4;
+        		bool speed_valid= 5;
+        		double speed=6;
+        		string timezone = 7;
+        	}
+
+        	repeated StreetForecast streetForecast=1;
+
+        }

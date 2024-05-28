@@ -1,0 +1,11 @@
+DEFINE
+	MEASURE 'getallkpis'[Fill Color] = IF(
+			1 > 0,
+			"#FF0000AA",
+			"#FFFFFF00"
+		)
+
+EVALUATE
+	SUMMARIZECOLUMNS(
+		"Fill Color", 'getallkpis'[Fill Color]
+	)

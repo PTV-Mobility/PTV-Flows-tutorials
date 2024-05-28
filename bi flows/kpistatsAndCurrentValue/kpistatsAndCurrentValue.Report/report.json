@@ -75,6 +75,15 @@
           "z": 2000.00
         },
         {
+          "config": "{\"name\":\"d376558106caa63d740e\",\"layouts\":[{\"id\":0,\"position\":{\"x\":782.0060790273557,\"y\":0,\"z\":5001,\"width\":477.5683890577508,\"height\":39.87841945288754,\"tabOrder\":5001}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"getallkpis.TotalKPIS\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"g\",\"Entity\":\"getallkpis\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"TotalKPIS\"},\"Name\":\"getallkpis.TotalKPIS\",\"NativeReferenceName\":\"TotalKPIS\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"TotalKPIS\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"28D\"}}}}}],\"categoryLabels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"8D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 39.88,
+          "width": 477.57,
+          "x": 782.01,
+          "y": 0.00,
+          "z": 5001.00
+        },
+        {
           "config": "{\"name\":\"ffabbad0c705ad00b555\",\"layouts\":[{\"id\":0,\"position\":{\"x\":2.388059701492537,\"y\":0,\"z\":0,\"width\":779.3034825870647,\"height\":230.0497512437811,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"getallkpis.Column1.name\"},{\"queryRef\":\"Count(getallkpis.Column1.location.name)\"},{\"queryRef\":\"getallkpis.Column1.kpiId\"},{\"queryRef\":\"getallkpis.TotalKPIS\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"g\",\"Entity\":\"getallkpis\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"Column1.name\"},\"Name\":\"getallkpis.Column1.name\",\"NativeReferenceName\":\"Column1.name\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"Column1.location.name\"}},\"Function\":2},\"Name\":\"Count(getallkpis.Column1.location.name)\",\"NativeReferenceName\":\"Count of Column1.location.name\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"Column1.kpiId\"},\"Name\":\"getallkpis.Column1.kpiId\",\"NativeReferenceName\":\"Column1.kpiId\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"TotalKPIS\"},\"Name\":\"getallkpis.TotalKPIS\",\"NativeReferenceName\":\"TotalKPIS\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"Column1.kpiId\"}}}]},\"drillFilterOtherVisuals\":true,\"vcObjects\":{\"stylePreset\":[{\"properties\":{\"name\":{\"expr\":{\"Literal\":{\"Value\":\"'AlternatingRowsNew'\"}}}}}]}}}",
           "filters": "[]",
           "height": 230.05,

@@ -428,7 +428,7 @@
               "",
               "Var GetKpis = SUM('getallkpis'[Value])",
               "Return",
-              "If(ISBLANK(GetKpis),\"No sales for this year.\", GetKpis)"
+              "If(ISBLANK(GetKpis),\"INSERT YOUR API KEY AS <<APIKEY>> PARAMETER IN THE QUERY DIALOG.\", GetKpis)"
             ],
             "lineageTag": "d5d2959b-d5d0-4602-bd37-29e93f906fbd"
           }

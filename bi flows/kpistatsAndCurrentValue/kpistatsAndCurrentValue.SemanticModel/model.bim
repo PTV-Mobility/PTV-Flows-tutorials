@@ -33,7 +33,7 @@
       }
     ],
     "dataAccessOptions": {
-      "fastCombine": false,
+      "fastCombine": true,
       "legacyRedirects": true,
       "returnErrorValuesAsNull": true
     },
@@ -45,10 +45,6 @@
           {
             "name": "PBI_ResultType",
             "value": "Text"
-          },
-          {
-            "name": "PBI_NavigationStepName",
-            "value": "Navigation"
           }
         ],
         "expression": "\"--PUT YOUR API KEY HERE --\" meta [IsParameterQuery=true, Type=\"Text\", IsParameterQueryRequired=true]",
@@ -309,10 +305,6 @@
           {
             "name": "PBI_ResultType",
             "value": "Table"
-          },
-          {
-            "name": "PBI_NavigationStepName",
-            "value": "Navigation"
           }
         ],
         "columns": [
@@ -482,10 +474,6 @@
           {
             "name": "PBI_ResultType",
             "value": "Table"
-          },
-          {
-            "name": "PBI_NavigationStepName",
-            "value": "Navigation"
           }
         ],
         "columns": [

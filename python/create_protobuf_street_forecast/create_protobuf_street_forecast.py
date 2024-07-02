@@ -119,7 +119,7 @@ if not protobuf_content:
     raise ValueError("Protobuf content not found in the OpenAPI JSON description.")
 
 # Step 3: Save the extracted protobuf content locally
-proto_file_path = 'street_forecast.proto'
+proto_file_path = './street_forecast.proto'
 with open(proto_file_path, 'w') as proto_file:
     proto_file.write(protobuf_content)
 

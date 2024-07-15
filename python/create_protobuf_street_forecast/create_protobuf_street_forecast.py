@@ -25,7 +25,7 @@ def check_and_install(package):
             sys.exit(1)
 
 # Check and install required libraries
-required_libraries = ['requests', 'google.protobuf']
+required_libraries = ['requests', 'protobuf']
 for lib in required_libraries:
     check_and_install(lib)
 

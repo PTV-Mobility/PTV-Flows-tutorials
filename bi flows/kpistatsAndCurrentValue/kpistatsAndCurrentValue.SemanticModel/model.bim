@@ -12,7 +12,7 @@
       },
       {
         "name": "PBIDesktopVersion",
-        "value": "2.129.905.0 (24.05)"
+        "value": "2.131.1203.0 (24.07)"
       },
       {
         "name": "PBI_ProTooling",
@@ -45,9 +45,13 @@
           {
             "name": "PBI_ResultType",
             "value": "Text"
+          },
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
           }
         ],
-        "expression": "\"--PUT YOUR API KEY HERE --\" meta [IsParameterQuery=true, Type=\"Text\", IsParameterQueryRequired=true]",
+        "expression": "\"RVVfYjgwNzNiZGVjNzVkNGM0Y2JmZTViMGI1N2U2NDFkZmQ6NzAxNzVjYzUtMzJkNy00OTI0LTk5NDUtOTIzMWJmYjVmNDEw\" meta [IsParameterQuery=true, Type=\"Text\", IsParameterQueryRequired=true]",
         "kind": "m",
         "lineageTag": "8a4fb3c7-a45b-4995-a93e-338347e4e6e2"
       },

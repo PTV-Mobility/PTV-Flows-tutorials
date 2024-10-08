@@ -7,3 +7,4 @@ bi flows/kpistatsAndCurrentValue/kpistatsAndCurrentValue.Report/.pbi/localSettin
 bi flows/kpistatsAndCurrentValue/kpistatsAndCurrentValue.SemanticModel/.pbi/cache.abf
 bi flows/kpistatsAndCurrentValue/kpistatsAndCurrentValue.SemanticModel/.pbi/localSettings.json
 *.pyc
+bi flows/kpistatsAndCurrentValue/kpistatsAndCurrentValue.SemanticModel/.pbi/cache.abf

@@ -1,10 +1,10 @@
 {
-  "compatibilityLevel": 1550,
+  "compatibilityLevel": 1567,
   "model": {
     "annotations": [
       {
         "name": "PBI_QueryOrder",
-        "value": "[\"apikey\",\"getallkpis\",\"AllKpiStats\",\"Parameter1\",\"DAYOFWEEK\",\"last24hours\"]"
+        "value": "[\"apikey\",\"getallkpis\",\"AllKpiStats\",\"DAYOFWEEK_PARAM\",\"DAYOFWEEK\",\"last24hours\",\"TIMEZONE\"]"
       },
       {
         "name": "__PBI_TimeIntelligenceEnabled",
@@ -33,7 +33,7 @@
       }
     ],
     "dataAccessOptions": {
-      "fastCombine": true,
+      "fastCombine": false,
       "legacyRedirects": true,
       "returnErrorValuesAsNull": true
     },
@@ -51,12 +51,12 @@
             "value": "Navigation"
           }
         ],
-        "expression": "\"RVVfYjgwNzNiZGVjNzVkNGM0Y2JmZTViMGI1N2U2NDFkZmQ6NzAxNzVjYzUtMzJkNy00OTI0LTk5NDUtOTIzMWJmYjVmNDEw\" meta [IsParameterQuery=true, Type=\"Text\", IsParameterQueryRequired=true]",
+        "expression": "\"PUT YOUR  API KEY HERE \" meta [IsParameterQuery=true, Type=\"Text\", IsParameterQueryRequired=true]",
         "kind": "m",
         "lineageTag": "8a4fb3c7-a45b-4995-a93e-338347e4e6e2"
       },
       {
-        "name": "Parameter1",
+        "name": "DAYOFWEEK_PARAM",
         "annotations": [
           {
             "name": "PBI_ResultType",
@@ -70,6 +70,23 @@
         "expression": "\"FRIDAY\" meta [IsParameterQuery=true, List={\"THURSDAY\", \"FRIDAY\", \"SATURDAY\", \"SUNDAY\", \"MONDAY\", \"TUESDAY\", \"WEDNESDAY\"}, DefaultValue=\"MONDAY\", Type=\"Text\", IsParameterQueryRequired=true]",
         "kind": "m",
         "lineageTag": "9916364c-1cda-4b4c-a8df-e9337aad74b9"
+      },
+      {
+        "name": "TIMEZONE",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Number"
+          }
+        ],
+        "description": "a number that express the timezone to be applied to the all the visualized data (+-12)",
+        "expression": "2 meta [IsParameterQuery=true, List={1, 2, 3, 4, 5, 6, 7, 8, 9, -1, -2, -3, -4, -5, -6, -7, -8, -9, -10, 0}, DefaultValue=0, Type=\"Number\", IsParameterQueryRequired=true]",
+        "kind": "m",
+        "lineageTag": "8115b54f-b0ee-42c7-b358-12897ededda1"
       }
     ],
     "relationships": [
@@ -94,6 +111,14 @@
         "joinOnDateBehavior": "datePartOnly",
         "toColumn": "Date",
         "toTable": "LocalDateTable_0bab0fb3-4715-4aea-a356-4b9933f9193a"
+      },
+      {
+        "name": "d073b13a-edec-45ad-9089-681f0b1f23cc",
+        "fromColumn": "timeStampTZ",
+        "fromTable": "last24hours",
+        "joinOnDateBehavior": "datePartOnly",
+        "toColumn": "Date",
+        "toTable": "LocalDateTable_e3dde58d-c700-4182-92e1-561066c037bb"
       }
     ],
     "sourceQueryCulture": "en-150",
@@ -309,6 +334,10 @@
           {
             "name": "PBI_ResultType",
             "value": "Table"
+          },
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
           }
         ],
         "columns": [
@@ -478,6 +507,10 @@
           {
             "name": "PBI_ResultType",
             "value": "Table"
+          },
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
           }
         ],
         "columns": [
@@ -535,7 +568,7 @@
             "summarizeBy": "none"
           },
           {
-            "name": "mean",
+            "name": "meanTT",
             "annotations": [
               {
                 "name": "SummarizationSetBy",
@@ -548,7 +581,7 @@
             ],
             "dataType": "double",
             "lineageTag": "c261d3b5-1b09-4bec-8ad8-1e26a907b530",
-            "sourceColumn": "mean",
+            "sourceColumn": "meanTT",
             "summarizeBy": "sum"
           },
           {
@@ -597,6 +630,42 @@
             "lineageTag": "e768b7ff-ab1e-4c60-871a-60ee55768f6d",
             "sourceColumn": "quantile",
             "summarizeBy": "sum"
+          },
+          {
+            "name": "TZ",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "724bb754-af2e-4fe3-8df6-23c2f9719e1c",
+            "sourceColumn": "TZ",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "HourTZ",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "expression": "AllKpiStats[hourOfDay] + AllKpiStats[TZ] ",
+            "isDataTypeInferred": true,
+            "lineageTag": "3d96742d-a96e-4726-b3eb-ac9e924e8129",
+            "summarizeBy": "sum",
+            "type": "calculated"
           }
         ],
         "lineageTag": "eca33f93-c1e9-4b34-baa4-15482ecb7aa0",
@@ -656,9 +725,13 @@
                 "    NonNullResults = Table.RemoveRowsWithErrors(CombinedResults),",
                 "",
                 "    // Change data types of certain columns",
-                "    #\"Changed Type\" = Table.TransformColumnTypes(NonNullResults,{{\"mean\", type number}, {\"stddev\", type number}, {\"quantile\", type number}, {\"hourOfDay\", Int64.Type}})",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(NonNullResults,{{\"mean\", type number}, {\"stddev\", type number}, {\"quantile\", type number}, {\"hourOfDay\", Int64.Type}}),",
+                "    #\"Renamed Columns\" = Table.RenameColumns(#\"Changed Type\",{{\"mean\", \"meanUTC\"}}),",
+                "    #\"Added Custom\" = Table.AddColumn(#\"Renamed Columns\", \"TZ\", each TIMEZONE),",
+                "    #\"Calculated Absolute Value\" = Table.TransformColumns(#\"Added Custom\",{{\"TZ\", Number.Abs, type number}}),",
+                "    #\"Renamed Columns1\" = Table.RenameColumns(#\"Calculated Absolute Value\",{{\"meanUTC\", \"meanTT\"}})",
                 "in",
-                "    #\"Changed Type\""
+                "    #\"Renamed Columns1\""
               ],
               "type": "m"
             }
@@ -671,6 +744,10 @@
           {
             "name": "PBI_ResultType",
             "value": "Table"
+          },
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
           }
         ],
         "columns": [
@@ -712,6 +789,10 @@
           {
             "name": "PBI_ResultType",
             "value": "Table"
+          },
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
           }
         ],
         "columns": [
@@ -837,6 +918,47 @@
             "lineageTag": "a9c42797-de4e-4909-b075-a1b24f9d7ff4",
             "sourceColumn": "overallResult.progressive",
             "summarizeBy": "sum"
+          },
+          {
+            "name": "TZ",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "a49feb7f-14a8-47e4-b7e0-ecc6728cb2d8",
+            "sourceColumn": "TZ",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "timeStampTZ",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "dateTime",
+            "expression": "last24hours[timeStamp] + TIME( 'last24hours'[TZ], 0, 0)",
+            "formatString": "General Date",
+            "isDataTypeInferred": true,
+            "lineageTag": "a252e4fb-3be4-41b4-a0ac-4811e2d8a3f6",
+            "summarizeBy": "none",
+            "type": "calculated",
+            "variations": [
+              {
+                "name": "Variation",
+                "defaultHierarchy": {
+                  "hierarchy": "Date Hierarchy",
+                  "table": "LocalDateTable_e3dde58d-c700-4182-92e1-561066c037bb"
+                },
+                "isDefault": true,
+                "relationship": "d073b13a-edec-45ad-9089-681f0b1f23cc"
+              }
+            ]
           }
         ],
         "lineageTag": "d55a0137-1860-4ed4-8fe0-e7ea8df5ca6b",
@@ -885,9 +1007,11 @@
                 "    #\"Changed Type Last24Hours\" = Table.TransformColumnTypes(Last24HoursData,{{\"value\", type number}, {\"defaultValue\", type number}, {\"unusualValue\", type number}, {\"averageValue\", type number}, {\"progressive\", type number}, {\"timeStamp\", type datetime}}),",
                 "    #\"Removed Columns\" = Table.RemoveColumns(#\"Changed Type Last24Hours\",{\"value\", \"defaultValue\", \"unusualValue\", \"averageValue\", \"progressive\"}),",
                 "    #\"Expanded overallResult\" = Table.ExpandRecordColumn(#\"Removed Columns\", \"overallResult\", {\"value\", \"defaultValue\", \"unusualValue\", \"averageValue\", \"progressive\"}, {\"overallResult.value\", \"overallResult.defaultValue\", \"overallResult.unusualValue\", \"overallResult.averageValue\", \"overallResult.progressive\"}),",
-                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Expanded overallResult\",{{\"overallResult.value\", type number}, {\"overallResult.defaultValue\", type number}, {\"overallResult.unusualValue\", type number}, {\"overallResult.averageValue\", type number}, {\"overallResult.progressive\", type number}})",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Expanded overallResult\",{{\"overallResult.value\", type number}, {\"overallResult.defaultValue\", type number}, {\"overallResult.unusualValue\", type number}, {\"overallResult.averageValue\", type number}, {\"overallResult.progressive\", type number}}),",
+                "    #\"Added Custom\" = Table.AddColumn(#\"Changed Type\", \"TZ\", each TIMEZONE),",
+                "    #\"Changed Type1\" = Table.TransformColumnTypes(#\"Added Custom\",{{\"TZ\", Int64.Type}})",
                 "in",
-                "    #\"Changed Type\""
+                "    #\"Changed Type1\""
               ],
               "type": "m"
             }
@@ -1089,6 +1213,207 @@
             "mode": "import",
             "source": {
               "expression": "Calendar(Date(Year(MIN('last24hours'[timeStamp])), 1, 1), Date(Year(MAX('last24hours'[timeStamp])), 12, 31))",
+              "type": "calculated"
+            }
+          }
+        ],
+        "showAsVariationsOnly": true
+      },
+      {
+        "name": "LocalDateTable_e3dde58d-c700-4182-92e1-561066c037bb",
+        "annotations": [
+          {
+            "name": "__PBI_LocalDateTable",
+            "value": "true"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "PaddedDateTableDates",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "isNameInferred": true,
+            "lineageTag": "8a63f075-19e8-4f24-a01e-8b12eb2bb282",
+            "sourceColumn": "[Date]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Year"
+              }
+            ],
+            "dataCategory": "Years",
+            "dataType": "int64",
+            "expression": "YEAR([Date])",
+            "isHidden": true,
+            "lineageTag": "52729d48-873c-49b8-a2a7-71dd94322245",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "MonthNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "MonthNumber"
+              }
+            ],
+            "dataCategory": "MonthOfYear",
+            "dataType": "int64",
+            "expression": "MONTH([Date])",
+            "isHidden": true,
+            "lineageTag": "c62fd572-67da-4531-8e0a-da08fedebf17",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Month",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Month"
+              }
+            ],
+            "dataCategory": "Months",
+            "dataType": "string",
+            "expression": "FORMAT([Date], \"MMMM\")",
+            "isHidden": true,
+            "lineageTag": "59275858-6430-4c2f-bfb0-1eb44ce9ccc7",
+            "sortByColumn": "MonthNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "QuarterNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "QuarterNumber"
+              }
+            ],
+            "dataCategory": "QuarterOfYear",
+            "dataType": "int64",
+            "expression": "INT(([MonthNo] + 2) / 3)",
+            "isHidden": true,
+            "lineageTag": "affc233b-bc57-4f2c-b460-fc3adec78ab4",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Quarter",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Quarter"
+              }
+            ],
+            "dataCategory": "Quarters",
+            "dataType": "string",
+            "expression": "\"Qtr \" & [QuarterNo]",
+            "isHidden": true,
+            "lineageTag": "d1f47cc9-2dcb-472a-8fc3-da877c0581b7",
+            "sortByColumn": "QuarterNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Day",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Day"
+              }
+            ],
+            "dataCategory": "DayOfMonth",
+            "dataType": "int64",
+            "expression": "DAY([Date])",
+            "isHidden": true,
+            "lineageTag": "8d63251e-cefd-4ef7-9fb8-2767588c69c8",
+            "summarizeBy": "none",
+            "type": "calculated"
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Date Hierarchy",
+            "annotations": [
+              {
+                "name": "TemplateId",
+                "value": "DateHierarchy"
+              }
+            ],
+            "levels": [
+              {
+                "name": "Year",
+                "column": "Year",
+                "lineageTag": "3b4679fc-d3b7-4143-8faa-045860f15bfe",
+                "ordinal": 0
+              },
+              {
+                "name": "Quarter",
+                "column": "Quarter",
+                "lineageTag": "13b4c3a1-0463-438e-bb19-933ef7c2f7f1",
+                "ordinal": 1
+              },
+              {
+                "name": "Month",
+                "column": "Month",
+                "lineageTag": "5e90efe0-5aa1-4745-91f0-9acf42f18c4f",
+                "ordinal": 2
+              },
+              {
+                "name": "Day",
+                "column": "Day",
+                "lineageTag": "d4e811d4-dea5-4fe9-b737-87c7bd1efa68",
+                "ordinal": 3
+              }
+            ],
+            "lineageTag": "2ae088d0-5dce-4db9-91d1-88ae6b128f54"
+          }
+        ],
+        "isHidden": true,
+        "lineageTag": "50bb6257-aa03-4260-a385-bd19e09951f0",
+        "partitions": [
+          {
+            "name": "LocalDateTable_e3dde58d-c700-4182-92e1-561066c037bb",
+            "mode": "import",
+            "source": {
+              "expression": "Calendar(Date(Year(MIN('last24hours'[timeStampTZ])), 1, 1), Date(Year(MAX('last24hours'[timeStampTZ])), 12, 31))",
               "type": "calculated"
             }
           }

@@ -5,13 +5,13 @@
       "ordinal": 0,
       "scrollPosition": {
         "x": 0,
-        "y": 3261.3531155992046
+        "y": 7653.2542038475531
       },
       "nodes": [
         {
           "location": {
             "x": 200,
-            "y": 4235.9615478515625
+            "y": 8758.52105117803
           },
           "nodeIndex": "getallkpis",
           "nodeLineageTag": "10b7fc07-92ee-4298-8af6-76dad3851cc8",
@@ -24,7 +24,7 @@
         {
           "location": {
             "x": 960,
-            "y": 4328.2115478515625
+            "y": 8850.77105117803
           },
           "nodeIndex": "AllKpiStats",
           "size": {
@@ -36,7 +36,7 @@
         {
           "location": {
             "x": 423.07867694084268,
-            "y": 3664.9259670410975
+            "y": 8187.4854703675646
           },
           "nodeIndex": "DAYOFWEEK",
           "nodeLineageTag": "dd9607b7-4c05-4637-af25-f25733c69f3e",
@@ -49,7 +49,7 @@
         {
           "location": {
             "x": 828.82881707149693,
-            "y": 3737.2264957216803
+            "y": 8259.7859990481484
           },
           "nodeIndex": "last24hours",
           "nodeLineageTag": "d55a0137-1860-4ed4-8fe0-e7ea8df5ca6b",

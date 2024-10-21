@@ -11,7 +11,7 @@
         {
           "location": {
             "x": 200,
-            "y": 8758.52105117803
+            "y": 12852.263786361811
           },
           "nodeIndex": "getallkpis",
           "nodeLineageTag": "10b7fc07-92ee-4298-8af6-76dad3851cc8",
@@ -24,7 +24,7 @@
         {
           "location": {
             "x": 960,
-            "y": 8850.77105117803
+            "y": 12944.513786361811
           },
           "nodeIndex": "AllKpiStats",
           "size": {
@@ -36,7 +36,7 @@
         {
           "location": {
             "x": 423.07867694084268,
-            "y": 8187.4854703675646
+            "y": 12281.228205551346
           },
           "nodeIndex": "DAYOFWEEK",
           "nodeLineageTag": "dd9607b7-4c05-4637-af25-f25733c69f3e",
@@ -49,7 +49,7 @@
         {
           "location": {
             "x": 828.82881707149693,
-            "y": 8259.7859990481484
+            "y": 12353.528734231932
           },
           "nodeIndex": "last24hours",
           "nodeLineageTag": "d55a0137-1860-4ed4-8fe0-e7ea8df5ca6b",
@@ -58,6 +58,18 @@
             "width": 234
           },
           "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 1044,
+            "y": 4505.2605255890148
+          },
+          "nodeIndex": "JoinKPILocationTable",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "All tables",

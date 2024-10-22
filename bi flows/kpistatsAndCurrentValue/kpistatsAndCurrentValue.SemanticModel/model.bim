@@ -48,6 +48,22 @@
                   }
                 ]
               },
+              "all_kpi_stat.bti": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "AllKpiStats",
+                    "ConceptualProperty": "BTI"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "bti": {
+                      "State": "Generated"
+                    }
+                  }
+                ]
+              },
               "all_kpi_stat.day_of_the_week": {
                 "Definition": {
                   "Binding": {
@@ -67,6 +83,135 @@
                       "State": "Generated",
                       "Type": "Noun",
                       "Weight": 0.99
+                    }
+                  }
+                ]
+              },
+              "all_kpi_stat.free_flow": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "AllKpiStats",
+                    "ConceptualProperty": "FreeFlow"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "free flow": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "FreeFlow": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "flow": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "free movement": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "movement": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.491
+                    }
+                  },
+                  {
+                    "free current": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.485
+                    }
+                  },
+                  {
+                    "free stream": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.485
+                    }
+                  },
+                  {
+                    "free drift": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.485
+                    }
+                  },
+                  {
+                    "free tide": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.485
+                    }
+                  },
+                  {
+                    "free course": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.485
+                    }
+                  },
+                  {
+                    "stream": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.476
+                    }
+                  },
+                  {
+                    "drift": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.476
+                    }
+                  },
+                  {
+                    "tide": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.476
                     }
                   }
                 ]
@@ -223,6 +368,69 @@
                   "Value": "Hidden"
                 }
               },
+              "all_kpi_stat.kpi_name": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "AllKpiStats",
+                    "ConceptualProperty": "Kpi_Name"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "kpi name": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "Kpi_Name": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "kpi nickname": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  },
+                  {
+                    "kpi title": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  },
+                  {
+                    "kpi label": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  },
+                  {
+                    "kpi tag": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  }
+                ]
+              },
               "all_kpi_stat.mean_TT": {
                 "Definition": {
                   "Binding": {
@@ -264,6 +472,16 @@
                   {
                     "quantile": {
                       "State": "Generated"
+                    }
+                  },
+                  {
+                    "95th perc": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
                     }
                   }
                 ]
@@ -455,6 +673,22 @@
                       "State": "Suggested",
                       "Type": "Noun",
                       "Weight": 0.491
+                    }
+                  }
+                ]
+              },
+              "all_kpi_stat.tti": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "AllKpiStats",
+                    "ConceptualProperty": "TTI"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "tti": {
+                      "State": "Generated"
                     }
                   }
                 ]
@@ -1169,6 +1403,62 @@
                   }
                 ]
               },
+              "getallkpis.forecast": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "getallkpis",
+                    "ConceptualProperty": "forecast"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "forecast": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "prediction": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "projection": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "report": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.714
+                    }
+                  },
+                  {
+                    "estimate": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.714
+                    }
+                  }
+                ]
+              },
               "getallkpis.geometry": {
                 "Definition": {
                   "Binding": {
@@ -1350,6 +1640,778 @@
                   }
                 ]
               },
+              "join_KPI_location_table": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "JoinKPILocationTable"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "join KPI location table": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "JoinKPILocationTable": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "location table": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "KPI location table": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "join kpi locality table": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.617
+                    }
+                  },
+                  {
+                    "join kpi placement table": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.617
+                    }
+                  },
+                  {
+                    "join kpi scene table": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.617
+                    }
+                  },
+                  {
+                    "join kpi venue table": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.617
+                    }
+                  },
+                  {
+                    "kpi locality table": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.609
+                    }
+                  },
+                  {
+                    "kpi placement table": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.609
+                    }
+                  },
+                  {
+                    "kpi scene table": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.609
+                    }
+                  },
+                  {
+                    "kpi venue table": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.609
+                    }
+                  },
+                  {
+                    "locality table": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.6
+                    }
+                  },
+                  {
+                    "placement table": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.6
+                    }
+                  }
+                ]
+              },
+              "join_KPI_location_table.getallkpis_Column1_kpiId": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "JoinKPILocationTable",
+                    "ConceptualProperty": "getallkpis_Column1.kpiId"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "getallkpis_Column1.kpiId": {
+                      "State": "Generated"
+                    }
+                  }
+                ]
+              },
+              "join_KPI_location_table.getallkpis_Column1_location_locationId": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "JoinKPILocationTable",
+                    "ConceptualProperty": "getallkpis_Column1.location.locationId"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "getallkpis_Column1.location.locationId": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "getallkpis_column1. locality .locationid": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.624
+                    }
+                  },
+                  {
+                    "getallkpis_column1. placement .locationid": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.624
+                    }
+                  },
+                  {
+                    "getallkpis_column1. scene .locationid": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.624
+                    }
+                  },
+                  {
+                    "getallkpis_column1. venue .locationid": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.624
+                    }
+                  },
+                  {
+                    "getallkpis_column1. address .locationid": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.605
+                    }
+                  },
+                  {
+                    "getallkpis_column1. place .locationid": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.605
+                    }
+                  },
+                  {
+                    "getallkpis_column1. position .locationid": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.605
+                    }
+                  },
+                  {
+                    "getallkpis_column1. setting .locationid": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.605
+                    }
+                  },
+                  {
+                    "getallkpis_column1. site .locationid": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.605
+                    }
+                  },
+                  {
+                    "getallkpis_column1. spot .locationid": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.605
+                    }
+                  }
+                ]
+              },
+              "join_KPI_location_table.getallkpis_column_1_name": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "JoinKPILocationTable",
+                    "ConceptualProperty": "getallkpis_Column1.name"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "getallkpis column 1 name": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "getallkpis_Column1.name": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "getallkpis column 1 nickname": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.748
+                    }
+                  },
+                  {
+                    "getallkpis column 1 title": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.748
+                    }
+                  },
+                  {
+                    "getallkpis column 1 label": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.748
+                    }
+                  },
+                  {
+                    "getallkpis column 1 tag": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.748
+                    }
+                  }
+                ]
+              },
+              "join_KPI_location_table.last24hours_overallResult_value": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "JoinKPILocationTable",
+                    "ConceptualProperty": "last24hours_overallResult.value"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "last24hours_overallResult.value": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "last24hours_overallresult. assessment": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "last24hours_overallresult. worth": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.492
+                    }
+                  },
+                  {
+                    "last24hours_overallresult. price": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.492
+                    }
+                  },
+                  {
+                    "last24hours_overallresult. cost": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.492
+                    }
+                  },
+                  {
+                    "last24hours_overallresult. charge": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.492
+                    }
+                  },
+                  {
+                    "last24hours_overallresult. rate": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.492
+                    }
+                  },
+                  {
+                    "last24hours_overallresult. importance": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.482
+                    }
+                  },
+                  {
+                    "last24hours_overallresult. significance": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.482
+                    }
+                  },
+                  {
+                    "last24hours_overallresult. usefulness": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.482
+                    }
+                  },
+                  {
+                    "last24hours_overallresult. consequence": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.482
+                    }
+                  }
+                ]
+              },
+              "join_KPI_location_table.last_2_4hours_forecast_time": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "JoinKPILocationTable",
+                    "ConceptualProperty": "last24hours_ForecastTime"
+                  }
+                },
+                "SemanticType": "Time",
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "last 2 4hours forecast time": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "last 2 4hour forecast time": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.78
+                    }
+                  },
+                  {
+                    "last24hours_ForecastTime": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "date": {
+                      "State": "Generated",
+                      "Weight": 0.7
+                    }
+                  },
+                  {
+                    "last 2 4hour forecast duration": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.78
+                    }
+                  },
+                  {
+                    "last 2 4hour forecast interval": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.78
+                    }
+                  },
+                  {
+                    "last 2 4hour forecast moment": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.78
+                    }
+                  },
+                  {
+                    "last 2 4hour forecast period": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.757
+                    }
+                  },
+                  {
+                    "last 2 4hour forecast timetable": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.757
+                    }
+                  },
+                  {
+                    "last 2 4hour prediction time": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.624
+                    }
+                  },
+                  {
+                    "last 2 4hour projection time": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.624
+                    }
+                  },
+                  {
+                    "end 2 4hour forecast time": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.605
+                    }
+                  },
+                  {
+                    "final 2 4hour forecast time": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.605
+                    }
+                  },
+                  {
+                    "closing 2 4hour forecast time": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.605
+                    }
+                  }
+                ]
+              },
+              "join_KPI_location_table.last_2_4hours_forecast_time.variation.date_hierarchy": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "JoinKPILocationTable",
+                    "Hierarchy": "Date Hierarchy",
+                    "VariationSet": "Variation",
+                    "VariationSource": "last24hours_ForecastTime"
+                  }
+                },
+                "SemanticType": "Time",
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "last 2 4hours forecast time date hierarchy": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "last 2 4hour forecast time date hierarchy": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.78
+                    }
+                  },
+                  {
+                    "date hierarchy": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  }
+                ]
+              },
+              "join_KPI_location_table.last_2_4hours_forecast_time.variation.date_hierarchy.day": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "JoinKPILocationTable",
+                    "Hierarchy": "Date Hierarchy",
+                    "HierarchyLevel": "Day",
+                    "VariationSet": "Variation",
+                    "VariationSource": "last24hours_ForecastTime"
+                  }
+                },
+                "SemanticType": "Time",
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "last 2 4hours forecast time day": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "last 2 4hour forecast time day": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.78
+                    }
+                  },
+                  {
+                    "day": {
+                      "State": "Generated"
+                    }
+                  }
+                ]
+              },
+              "join_KPI_location_table.last_2_4hours_forecast_time.variation.date_hierarchy.month": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "JoinKPILocationTable",
+                    "Hierarchy": "Date Hierarchy",
+                    "HierarchyLevel": "Month",
+                    "VariationSet": "Variation",
+                    "VariationSource": "last24hours_ForecastTime"
+                  }
+                },
+                "SemanticType": "Time",
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "last 2 4hours forecast time month": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "last 2 4hour forecast time month": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.78
+                    }
+                  },
+                  {
+                    "month": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "mth": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  }
+                ]
+              },
+              "join_KPI_location_table.last_2_4hours_forecast_time.variation.date_hierarchy.quarter": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "JoinKPILocationTable",
+                    "Hierarchy": "Date Hierarchy",
+                    "HierarchyLevel": "Quarter",
+                    "VariationSet": "Variation",
+                    "VariationSource": "last24hours_ForecastTime"
+                  }
+                },
+                "SemanticType": "Time",
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "last 2 4hours forecast time quarter": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "last 2 4hour forecast time quarter": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.78
+                    }
+                  },
+                  {
+                    "quarter": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "qtr": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.818
+                    }
+                  }
+                ]
+              },
+              "join_KPI_location_table.last_2_4hours_forecast_time.variation.date_hierarchy.year": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "JoinKPILocationTable",
+                    "Hierarchy": "Date Hierarchy",
+                    "HierarchyLevel": "Year",
+                    "VariationSet": "Variation",
+                    "VariationSource": "last24hours_ForecastTime"
+                  }
+                },
+                "SemanticType": "Time",
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "last 2 4hours forecast time year": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "last 2 4hour forecast time year": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.78
+                    }
+                  },
+                  {
+                    "year": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "yr": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  }
+                ]
+              },
               "last_2_4hour": {
                 "Definition": {
                   "Binding": {
@@ -1472,6 +2534,681 @@
                   }
                 ]
               },
+              "last_2_4hour.forecast_time": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "last24hours",
+                    "ConceptualProperty": "ForecastTime"
+                  }
+                },
+                "SemanticType": "Time",
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "forecast time": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "ForecastTime": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "date": {
+                      "State": "Generated",
+                      "Weight": 0.7
+                    }
+                  },
+                  {
+                    "forecast duration": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "forecast interval": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "forecast moment": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "forecast period": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  },
+                  {
+                    "forecast timetable": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  },
+                  {
+                    "prediction time": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.6
+                    }
+                  },
+                  {
+                    "projection time": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.6
+                    }
+                  },
+                  {
+                    "report time": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.582
+                    }
+                  },
+                  {
+                    "estimate time": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.582
+                    }
+                  }
+                ]
+              },
+              "last_2_4hour.forecast_time.variation.date_hierarchy": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "last24hours",
+                    "Hierarchy": "Date Hierarchy",
+                    "VariationSet": "Variation",
+                    "VariationSource": "ForecastTime"
+                  }
+                },
+                "SemanticType": "Time",
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "forecast time date hierarchy": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "date hierarchy": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "time date hierarchy": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  }
+                ]
+              },
+              "last_2_4hour.forecast_time.variation.date_hierarchy.day": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "last24hours",
+                    "Hierarchy": "Date Hierarchy",
+                    "HierarchyLevel": "Day",
+                    "VariationSet": "Variation",
+                    "VariationSource": "ForecastTime"
+                  }
+                },
+                "SemanticType": "Time",
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "forecast time day": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "day": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "time day": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "prediction time day": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.609
+                    }
+                  },
+                  {
+                    "projection time day": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.609
+                    }
+                  },
+                  {
+                    "forecast duration day": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.609
+                    }
+                  },
+                  {
+                    "forecast interval day": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.609
+                    }
+                  },
+                  {
+                    "forecast moment day": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.609
+                    }
+                  },
+                  {
+                    "duration day": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.6
+                    }
+                  },
+                  {
+                    "interval day": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.6
+                    }
+                  },
+                  {
+                    "moment day": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.6
+                    }
+                  },
+                  {
+                    "report time day": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.591
+                    }
+                  },
+                  {
+                    "estimate time day": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.591
+                    }
+                  }
+                ]
+              },
+              "last_2_4hour.forecast_time.variation.date_hierarchy.month": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "last24hours",
+                    "Hierarchy": "Date Hierarchy",
+                    "HierarchyLevel": "Month",
+                    "VariationSet": "Variation",
+                    "VariationSource": "ForecastTime"
+                  }
+                },
+                "SemanticType": "Time",
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "forecast time month": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "month": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "time month": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "forecast time mth": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.762
+                    }
+                  },
+                  {
+                    "time mth": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "mth": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "prediction time month": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.609
+                    }
+                  },
+                  {
+                    "projection time month": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.609
+                    }
+                  },
+                  {
+                    "forecast duration month": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.609
+                    }
+                  },
+                  {
+                    "forecast interval month": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.609
+                    }
+                  },
+                  {
+                    "forecast moment month": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.609
+                    }
+                  },
+                  {
+                    "duration month": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.6
+                    }
+                  },
+                  {
+                    "interval month": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.6
+                    }
+                  }
+                ]
+              },
+              "last_2_4hour.forecast_time.variation.date_hierarchy.quarter": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "last24hours",
+                    "Hierarchy": "Date Hierarchy",
+                    "HierarchyLevel": "Quarter",
+                    "VariationSet": "Variation",
+                    "VariationSource": "ForecastTime"
+                  }
+                },
+                "SemanticType": "Time",
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "forecast time quarter": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "quarter": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "time quarter": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "forecast time qtr": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.846
+                    }
+                  },
+                  {
+                    "time qtr": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.833
+                    }
+                  },
+                  {
+                    "qtr": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.818
+                    }
+                  },
+                  {
+                    "prediction time quarter": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.609
+                    }
+                  },
+                  {
+                    "projection time quarter": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.609
+                    }
+                  },
+                  {
+                    "forecast duration quarter": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.609
+                    }
+                  },
+                  {
+                    "forecast interval quarter": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.609
+                    }
+                  },
+                  {
+                    "forecast moment quarter": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.609
+                    }
+                  },
+                  {
+                    "duration quarter": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.6
+                    }
+                  },
+                  {
+                    "interval quarter": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.6
+                    }
+                  }
+                ]
+              },
+              "last_2_4hour.forecast_time.variation.date_hierarchy.year": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "last24hours",
+                    "Hierarchy": "Date Hierarchy",
+                    "HierarchyLevel": "Year",
+                    "VariationSet": "Variation",
+                    "VariationSource": "ForecastTime"
+                  }
+                },
+                "SemanticType": "Time",
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "forecast time year": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "year": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "time year": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "forecast time yr": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.762
+                    }
+                  },
+                  {
+                    "time yr": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "yr": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "prediction time year": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.609
+                    }
+                  },
+                  {
+                    "projection time year": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.609
+                    }
+                  },
+                  {
+                    "forecast duration year": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.609
+                    }
+                  },
+                  {
+                    "forecast interval year": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.609
+                    }
+                  },
+                  {
+                    "forecast moment year": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.609
+                    }
+                  },
+                  {
+                    "duration year": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.6
+                    }
+                  },
+                  {
+                    "interval year": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.6
+                    }
+                  }
+                ]
+              },
               "last_2_4hour.kpi_id": {
                 "Definition": {
                   "Binding": {
@@ -1537,6 +3274,69 @@
                 "Visibility": {
                   "Value": "Hidden"
                 }
+              },
+              "last_2_4hour.kpi_name": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "last24hours",
+                    "ConceptualProperty": "Kpi_Name"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "kpi name": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "Kpi_Name": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "kpi nickname": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  },
+                  {
+                    "kpi title": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  },
+                  {
+                    "kpi label": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  },
+                  {
+                    "kpi tag": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  }
+                ]
               },
               "last_2_4hour.overallResult_averageValue": {
                 "Definition": {
@@ -1729,12 +3529,12 @@
                 "State": "Generated",
                 "Terms": [
                   {
-                    "time stamp": {
+                    "time stamp TZ": {
                       "State": "Generated"
                     }
                   },
                   {
-                    "timeStamp": {
+                    "timeStampTZ": {
                       "State": "Generated",
                       "Type": "Noun",
                       "Weight": 0.99
@@ -1747,175 +3547,13 @@
                     }
                   },
                   {
-                    "stamp": {
+                    "stamp TZ": {
                       "State": "Generated",
                       "Weight": 0.97
                     }
                   },
                   {
-                    "duration stamp": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.6
-                    }
-                  },
-                  {
-                    "interval stamp": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.6
-                    }
-                  },
-                  {
-                    "moment stamp": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.6
-                    }
-                  },
-                  {
-                    "period stamp": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.582
-                    }
-                  },
-                  {
-                    "timetable stamp": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.582
-                    }
-                  },
-                  {
-                    "time impression": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.5
-                    }
-                  },
-                  {
-                    "time endorsement": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.5
-                    }
-                  },
-                  {
-                    "time identification": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.5
-                    }
-                  },
-                  {
-                    "impression": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.491
-                    }
-                  },
-                  {
-                    "endorsement": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.491
-                    }
-                  }
-                ]
-              },
-              "last_2_4hour.time_stamp.variation.date_hierarchy": {
-                "Definition": {
-                  "Binding": {
-                    "ConceptualEntity": "last24hours",
-                    "Hierarchy": "Date Hierarchy",
-                    "VariationSet": "Variation",
-                    "VariationSource": "timeStamp"
-                  }
-                },
-                "SemanticType": "Time",
-                "State": "Generated",
-                "Terms": [
-                  {
-                    "time stamp date hierarchy": {
-                      "State": "Generated"
-                    }
-                  },
-                  {
-                    "date hierarchy": {
-                      "State": "Generated",
-                      "Weight": 0.97
-                    }
-                  },
-                  {
-                    "stamp date hierarchy": {
-                      "State": "Generated",
-                      "Weight": 0.97
-                    }
-                  }
-                ]
-              },
-              "last_2_4hour.time_stamp.variation.date_hierarchy.day": {
-                "Definition": {
-                  "Binding": {
-                    "ConceptualEntity": "last24hours",
-                    "Hierarchy": "Date Hierarchy",
-                    "HierarchyLevel": "Day",
-                    "VariationSet": "Variation",
-                    "VariationSource": "timeStamp"
-                  }
-                },
-                "SemanticType": "Time",
-                "State": "Generated",
-                "Terms": [
-                  {
-                    "time stamp day": {
-                      "State": "Generated"
-                    }
-                  },
-                  {
-                    "day": {
-                      "State": "Generated"
-                    }
-                  },
-                  {
-                    "stamp day": {
-                      "State": "Generated",
-                      "Weight": 0.97
-                    }
-                  },
-                  {
-                    "duration stamp day": {
+                    "duration stamp tz": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
@@ -1925,7 +3563,7 @@
                     }
                   },
                   {
-                    "interval stamp day": {
+                    "interval stamp tz": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
@@ -1935,7 +3573,7 @@
                     }
                   },
                   {
-                    "moment stamp day": {
+                    "moment stamp tz": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
@@ -1945,7 +3583,7 @@
                     }
                   },
                   {
-                    "period stamp day": {
+                    "period stamp tz": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
@@ -1955,340 +3593,7 @@
                     }
                   },
                   {
-                    "timetable stamp day": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.591
-                    }
-                  }
-                ]
-              },
-              "last_2_4hour.time_stamp.variation.date_hierarchy.month": {
-                "Definition": {
-                  "Binding": {
-                    "ConceptualEntity": "last24hours",
-                    "Hierarchy": "Date Hierarchy",
-                    "HierarchyLevel": "Month",
-                    "VariationSet": "Variation",
-                    "VariationSource": "timeStamp"
-                  }
-                },
-                "SemanticType": "Time",
-                "State": "Generated",
-                "Terms": [
-                  {
-                    "time stamp month": {
-                      "State": "Generated"
-                    }
-                  },
-                  {
-                    "month": {
-                      "State": "Generated"
-                    }
-                  },
-                  {
-                    "stamp month": {
-                      "State": "Generated",
-                      "Weight": 0.97
-                    }
-                  },
-                  {
-                    "time stamp mth": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.762
-                    }
-                  },
-                  {
-                    "stamp mth": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.75
-                    }
-                  },
-                  {
-                    "mth": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.736
-                    }
-                  },
-                  {
-                    "duration stamp month": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.609
-                    }
-                  },
-                  {
-                    "interval stamp month": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.609
-                    }
-                  },
-                  {
-                    "moment stamp month": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.609
-                    }
-                  },
-                  {
-                    "period stamp month": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.591
-                    }
-                  },
-                  {
-                    "timetable stamp month": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.591
-                    }
-                  }
-                ]
-              },
-              "last_2_4hour.time_stamp.variation.date_hierarchy.quarter": {
-                "Definition": {
-                  "Binding": {
-                    "ConceptualEntity": "last24hours",
-                    "Hierarchy": "Date Hierarchy",
-                    "HierarchyLevel": "Quarter",
-                    "VariationSet": "Variation",
-                    "VariationSource": "timeStamp"
-                  }
-                },
-                "SemanticType": "Time",
-                "State": "Generated",
-                "Terms": [
-                  {
-                    "time stamp quarter": {
-                      "State": "Generated"
-                    }
-                  },
-                  {
-                    "quarter": {
-                      "State": "Generated"
-                    }
-                  },
-                  {
-                    "stamp quarter": {
-                      "State": "Generated",
-                      "Weight": 0.97
-                    }
-                  },
-                  {
-                    "time stamp qtr": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.846
-                    }
-                  },
-                  {
-                    "stamp qtr": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.833
-                    }
-                  },
-                  {
-                    "qtr": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.818
-                    }
-                  },
-                  {
-                    "duration stamp quarter": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.609
-                    }
-                  },
-                  {
-                    "interval stamp quarter": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.609
-                    }
-                  },
-                  {
-                    "moment stamp quarter": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.609
-                    }
-                  },
-                  {
-                    "period stamp quarter": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.591
-                    }
-                  },
-                  {
-                    "timetable stamp quarter": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.591
-                    }
-                  }
-                ]
-              },
-              "last_2_4hour.time_stamp.variation.date_hierarchy.year": {
-                "Definition": {
-                  "Binding": {
-                    "ConceptualEntity": "last24hours",
-                    "Hierarchy": "Date Hierarchy",
-                    "HierarchyLevel": "Year",
-                    "VariationSet": "Variation",
-                    "VariationSource": "timeStamp"
-                  }
-                },
-                "SemanticType": "Time",
-                "State": "Generated",
-                "Terms": [
-                  {
-                    "time stamp year": {
-                      "State": "Generated"
-                    }
-                  },
-                  {
-                    "year": {
-                      "State": "Generated"
-                    }
-                  },
-                  {
-                    "stamp year": {
-                      "State": "Generated",
-                      "Weight": 0.97
-                    }
-                  },
-                  {
-                    "time stamp yr": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.762
-                    }
-                  },
-                  {
-                    "stamp yr": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.75
-                    }
-                  },
-                  {
-                    "yr": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.736
-                    }
-                  },
-                  {
-                    "duration stamp year": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.609
-                    }
-                  },
-                  {
-                    "interval stamp year": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.609
-                    }
-                  },
-                  {
-                    "moment stamp year": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.609
-                    }
-                  },
-                  {
-                    "period stamp year": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.591
-                    }
-                  },
-                  {
-                    "timetable stamp year": {
+                    "timetable stamp tz": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
@@ -2823,6 +4128,39 @@
             },
             "Language": "en-US",
             "Relationships": {
+              "all_kpi_stat_has_bti": {
+                "Binding": {
+                  "ConceptualEntity": "AllKpiStats"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "all_kpi_stat.bti"
+                      },
+                      "Subject": {
+                        "Role": "all_kpi_stat"
+                      }
+                    },
+                    "ID": "all_kpi_stats_have_btis",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "all_kpi_stat": {
+                    "Target": {
+                      "Entity": "all_kpi_stat"
+                    }
+                  },
+                  "all_kpi_stat.bti": {
+                    "Target": {
+                      "Entity": "all_kpi_stat.bti"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
               "all_kpi_stat_has_day_of_the_week": {
                 "Binding": {
                   "ConceptualEntity": "AllKpiStats"
@@ -2851,6 +4189,39 @@
                   "all_kpi_stat.day_of_the_week": {
                     "Target": {
                       "Entity": "all_kpi_stat.day_of_the_week"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "all_kpi_stat_has_free_flow": {
+                "Binding": {
+                  "ConceptualEntity": "AllKpiStats"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "all_kpi_stat.free_flow"
+                      },
+                      "Subject": {
+                        "Role": "all_kpi_stat"
+                      }
+                    },
+                    "ID": "all_kpi_stats_have_free_flows",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "all_kpi_stat": {
+                    "Target": {
+                      "Entity": "all_kpi_stat"
+                    }
+                  },
+                  "all_kpi_stat.free_flow": {
+                    "Target": {
+                      "Entity": "all_kpi_stat.free_flow"
                     }
                   }
                 },
@@ -2963,6 +4334,39 @@
                   "all_kpi_stat.hour_of_day": {
                     "Target": {
                       "Entity": "all_kpi_stat.hour_of_day"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "all_kpi_stat_has_kpi_name": {
+                "Binding": {
+                  "ConceptualEntity": "AllKpiStats"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "all_kpi_stat.kpi_name"
+                      },
+                      "Subject": {
+                        "Role": "all_kpi_stat"
+                      }
+                    },
+                    "ID": "all_kpi_stats_have_kpi_names",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "all_kpi_stat": {
+                    "Target": {
+                      "Entity": "all_kpi_stat"
+                    }
+                  },
+                  "all_kpi_stat.kpi_name": {
+                    "Target": {
+                      "Entity": "all_kpi_stat.kpi_name"
                     }
                   }
                 },
@@ -3128,6 +4532,39 @@
                   "all_kpi_stat.time_stamp": {
                     "Target": {
                       "Entity": "all_kpi_stat.time_stamp"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "all_kpi_stat_has_tti": {
+                "Binding": {
+                  "ConceptualEntity": "AllKpiStats"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "all_kpi_stat.tti"
+                      },
+                      "Subject": {
+                        "Role": "all_kpi_stat"
+                      }
+                    },
+                    "ID": "all_kpi_stats_have_ttis",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "all_kpi_stat": {
+                    "Target": {
+                      "Entity": "all_kpi_stat"
+                    }
+                  },
+                  "all_kpi_stat.tti": {
+                    "Target": {
+                      "Entity": "all_kpi_stat.tti"
                     }
                   }
                 },
@@ -3397,6 +4834,39 @@
                 },
                 "State": "Generated"
               },
+              "getallkpis_has_forecast": {
+                "Binding": {
+                  "ConceptualEntity": "getallkpis"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "getallkpis.forecast"
+                      },
+                      "Subject": {
+                        "Role": "getallkpis"
+                      }
+                    },
+                    "ID": "getallkpises_have_forecasts",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "getallkpis": {
+                    "Target": {
+                      "Entity": "getallkpis"
+                    }
+                  },
+                  "getallkpis.forecast": {
+                    "Target": {
+                      "Entity": "getallkpis.forecast"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
               "getallkpis_has_geometry": {
                 "Binding": {
                   "ConceptualEntity": "getallkpis"
@@ -3631,6 +5101,579 @@
                 },
                 "State": "Generated"
               },
+              "join_KPI_location_table_has_getallkpis_Column1_kpiId": {
+                "Binding": {
+                  "ConceptualEntity": "JoinKPILocationTable"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "join_KPI_location_table.getallkpis_Column1_kpiId"
+                      },
+                      "Subject": {
+                        "Role": "join_KPI_location_table"
+                      }
+                    },
+                    "ID": "join_KPI_location_tables_have_getallkpis_Column1_kpiIds",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "join_KPI_location_table": {
+                    "Target": {
+                      "Entity": "join_KPI_location_table"
+                    }
+                  },
+                  "join_KPI_location_table.getallkpis_Column1_kpiId": {
+                    "Target": {
+                      "Entity": "join_KPI_location_table.getallkpis_Column1_kpiId"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "join_KPI_location_table_has_getallkpis_Column1_location_locationId": {
+                "Binding": {
+                  "ConceptualEntity": "JoinKPILocationTable"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "join_KPI_location_table.getallkpis_Column1_location_locationId"
+                      },
+                      "Subject": {
+                        "Role": "join_KPI_location_table"
+                      }
+                    },
+                    "ID": "join_KPI_location_tables_have_getallkpis_Column1_location_locationIds",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "join_KPI_location_table": {
+                    "Target": {
+                      "Entity": "join_KPI_location_table"
+                    }
+                  },
+                  "join_KPI_location_table.getallkpis_Column1_location_locationId": {
+                    "Target": {
+                      "Entity": "join_KPI_location_table.getallkpis_Column1_location_locationId"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "join_KPI_location_table_has_getallkpis_column_1_name": {
+                "Binding": {
+                  "ConceptualEntity": "JoinKPILocationTable"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "join_KPI_location_table.getallkpis_column_1_name"
+                      },
+                      "Subject": {
+                        "Role": "join_KPI_location_table"
+                      }
+                    },
+                    "ID": "join_KPI_location_tables_have_getallkpis_column_1_names",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "join_KPI_location_table": {
+                    "Target": {
+                      "Entity": "join_KPI_location_table"
+                    }
+                  },
+                  "join_KPI_location_table.getallkpis_column_1_name": {
+                    "Target": {
+                      "Entity": "join_KPI_location_table.getallkpis_column_1_name"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "join_KPI_location_table_has_last24hours_overallResult_value": {
+                "Binding": {
+                  "ConceptualEntity": "JoinKPILocationTable"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "join_KPI_location_table.last24hours_overallResult_value"
+                      },
+                      "Subject": {
+                        "Role": "join_KPI_location_table"
+                      }
+                    },
+                    "ID": "join_KPI_location_tables_have_last24hours_overallResult_values",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "join_KPI_location_table": {
+                    "Target": {
+                      "Entity": "join_KPI_location_table"
+                    }
+                  },
+                  "join_KPI_location_table.last24hours_overallResult_value": {
+                    "Target": {
+                      "Entity": "join_KPI_location_table.last24hours_overallResult_value"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "join_KPI_location_table_has_last_2_4hours_forecast_time": {
+                "Binding": {
+                  "ConceptualEntity": "JoinKPILocationTable"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "join_KPI_location_table.last_2_4hours_forecast_time"
+                      },
+                      "Subject": {
+                        "Role": "join_KPI_location_table"
+                      }
+                    },
+                    "ID": "join_KPI_location_tables_have_last_2_4hours_forecast_times",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "join_KPI_location_table": {
+                    "Target": {
+                      "Entity": "join_KPI_location_table"
+                    }
+                  },
+                  "join_KPI_location_table.last_2_4hours_forecast_time": {
+                    "Target": {
+                      "Entity": "join_KPI_location_table.last_2_4hours_forecast_time"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "join_KPI_location_table_in_getallkpis_Column1_location_locationId": {
+                "Binding": {
+                  "ConceptualEntity": "JoinKPILocationTable"
+                },
+                "Phrasings": [
+                  {
+                    "ID": "join_KPI_location_tables_are_in_getallkpis_Column1_location_locationIds",
+                    "Preposition": {
+                      "Object": {
+                        "Role": "join_KPI_location_table.getallkpis_Column1_location_locationId"
+                      },
+                      "Prepositions": [
+                        {
+                          "in": {
+                            "State": "Generated"
+                          }
+                        }
+                      ],
+                      "Subject": {
+                        "Role": "join_KPI_location_table"
+                      }
+                    },
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "join_KPI_location_table": {
+                    "Target": {
+                      "Entity": "join_KPI_location_table"
+                    }
+                  },
+                  "join_KPI_location_table.getallkpis_Column1_location_locationId": {
+                    "Target": {
+                      "Entity": "join_KPI_location_table.getallkpis_Column1_location_locationId"
+                    }
+                  }
+                },
+                "SemanticSlots": {
+                  "Where": {
+                    "Role": "join_KPI_location_table.getallkpis_Column1_location_locationId"
+                  }
+                },
+                "State": "Generated"
+              },
+              "join_KPI_location_table_last_2_4hours_forecast_time_has_variation_date_hierarchy": {
+                "Binding": {
+                  "ConceptualEntity": "JoinKPILocationTable"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "join_KPI_location_table.last_2_4hours_forecast_time.variation.date_hierarchy"
+                      },
+                      "Subject": {
+                        "Role": "join_KPI_location_table.last_2_4hours_forecast_time"
+                      }
+                    },
+                    "ID": "last_2_4hours_forecast_times_have_last_2_4hours_forecast_time_date_hierarchies",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "join_KPI_location_table.last_2_4hours_forecast_time": {
+                    "Target": {
+                      "Entity": "join_KPI_location_table.last_2_4hours_forecast_time"
+                    }
+                  },
+                  "join_KPI_location_table.last_2_4hours_forecast_time.variation.date_hierarchy": {
+                    "Target": {
+                      "Entity": "join_KPI_location_table.last_2_4hours_forecast_time.variation.date_hierarchy"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "join_KPI_location_table_last_2_4hours_forecast_time_variation_date_hierarchy_has_day": {
+                "Binding": {
+                  "ConceptualEntity": "JoinKPILocationTable"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "join_KPI_location_table.last_2_4hours_forecast_time.variation.date_hierarchy.day"
+                      },
+                      "Subject": {
+                        "Role": "join_KPI_location_table.last_2_4hours_forecast_time.variation.date_hierarchy"
+                      }
+                    },
+                    "ID": "last_2_4hours_forecast_time_date_hierarchies_have_last_2_4hours_forecast_time_days",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "join_KPI_location_table.last_2_4hours_forecast_time.variation.date_hierarchy": {
+                    "Target": {
+                      "Entity": "join_KPI_location_table.last_2_4hours_forecast_time.variation.date_hierarchy"
+                    }
+                  },
+                  "join_KPI_location_table.last_2_4hours_forecast_time.variation.date_hierarchy.day": {
+                    "Target": {
+                      "Entity": "join_KPI_location_table.last_2_4hours_forecast_time.variation.date_hierarchy.day"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "join_KPI_location_table_last_2_4hours_forecast_time_variation_date_hierarchy_has_month": {
+                "Binding": {
+                  "ConceptualEntity": "JoinKPILocationTable"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "join_KPI_location_table.last_2_4hours_forecast_time.variation.date_hierarchy.month"
+                      },
+                      "Subject": {
+                        "Role": "join_KPI_location_table.last_2_4hours_forecast_time.variation.date_hierarchy"
+                      }
+                    },
+                    "ID": "last_2_4hours_forecast_time_date_hierarchies_have_last_2_4hours_forecast_time_months",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "join_KPI_location_table.last_2_4hours_forecast_time.variation.date_hierarchy": {
+                    "Target": {
+                      "Entity": "join_KPI_location_table.last_2_4hours_forecast_time.variation.date_hierarchy"
+                    }
+                  },
+                  "join_KPI_location_table.last_2_4hours_forecast_time.variation.date_hierarchy.month": {
+                    "Target": {
+                      "Entity": "join_KPI_location_table.last_2_4hours_forecast_time.variation.date_hierarchy.month"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "join_KPI_location_table_last_2_4hours_forecast_time_variation_date_hierarchy_has_quarter": {
+                "Binding": {
+                  "ConceptualEntity": "JoinKPILocationTable"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "join_KPI_location_table.last_2_4hours_forecast_time.variation.date_hierarchy.quarter"
+                      },
+                      "Subject": {
+                        "Role": "join_KPI_location_table.last_2_4hours_forecast_time.variation.date_hierarchy"
+                      }
+                    },
+                    "ID": "last_2_4hours_forecast_time_date_hierarchies_have_last_2_4hours_forecast_time_quarters",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "join_KPI_location_table.last_2_4hours_forecast_time.variation.date_hierarchy": {
+                    "Target": {
+                      "Entity": "join_KPI_location_table.last_2_4hours_forecast_time.variation.date_hierarchy"
+                    }
+                  },
+                  "join_KPI_location_table.last_2_4hours_forecast_time.variation.date_hierarchy.quarter": {
+                    "Target": {
+                      "Entity": "join_KPI_location_table.last_2_4hours_forecast_time.variation.date_hierarchy.quarter"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "join_KPI_location_table_last_2_4hours_forecast_time_variation_date_hierarchy_has_year": {
+                "Binding": {
+                  "ConceptualEntity": "JoinKPILocationTable"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "join_KPI_location_table.last_2_4hours_forecast_time.variation.date_hierarchy.year"
+                      },
+                      "Subject": {
+                        "Role": "join_KPI_location_table.last_2_4hours_forecast_time.variation.date_hierarchy"
+                      }
+                    },
+                    "ID": "last_2_4hours_forecast_time_date_hierarchies_have_last_2_4hours_forecast_time_years",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "join_KPI_location_table.last_2_4hours_forecast_time.variation.date_hierarchy": {
+                    "Target": {
+                      "Entity": "join_KPI_location_table.last_2_4hours_forecast_time.variation.date_hierarchy"
+                    }
+                  },
+                  "join_KPI_location_table.last_2_4hours_forecast_time.variation.date_hierarchy.year": {
+                    "Target": {
+                      "Entity": "join_KPI_location_table.last_2_4hours_forecast_time.variation.date_hierarchy.year"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "last_2_4hour_forecast_time_has_variation_date_hierarchy": {
+                "Binding": {
+                  "ConceptualEntity": "last24hours"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "last_2_4hour.forecast_time.variation.date_hierarchy"
+                      },
+                      "Subject": {
+                        "Role": "last_2_4hour.forecast_time"
+                      }
+                    },
+                    "ID": "forecast_times_have_forecast_time_date_hierarchies",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "last_2_4hour.forecast_time": {
+                    "Target": {
+                      "Entity": "last_2_4hour.forecast_time"
+                    }
+                  },
+                  "last_2_4hour.forecast_time.variation.date_hierarchy": {
+                    "Target": {
+                      "Entity": "last_2_4hour.forecast_time.variation.date_hierarchy"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "last_2_4hour_forecast_time_variation_date_hierarchy_has_day": {
+                "Binding": {
+                  "ConceptualEntity": "last24hours"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "last_2_4hour.forecast_time.variation.date_hierarchy.day"
+                      },
+                      "Subject": {
+                        "Role": "last_2_4hour.forecast_time.variation.date_hierarchy"
+                      }
+                    },
+                    "ID": "forecast_time_date_hierarchies_have_forecast_time_days",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "last_2_4hour.forecast_time.variation.date_hierarchy": {
+                    "Target": {
+                      "Entity": "last_2_4hour.forecast_time.variation.date_hierarchy"
+                    }
+                  },
+                  "last_2_4hour.forecast_time.variation.date_hierarchy.day": {
+                    "Target": {
+                      "Entity": "last_2_4hour.forecast_time.variation.date_hierarchy.day"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "last_2_4hour_forecast_time_variation_date_hierarchy_has_month": {
+                "Binding": {
+                  "ConceptualEntity": "last24hours"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "last_2_4hour.forecast_time.variation.date_hierarchy.month"
+                      },
+                      "Subject": {
+                        "Role": "last_2_4hour.forecast_time.variation.date_hierarchy"
+                      }
+                    },
+                    "ID": "forecast_time_date_hierarchies_have_forecast_time_months",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "last_2_4hour.forecast_time.variation.date_hierarchy": {
+                    "Target": {
+                      "Entity": "last_2_4hour.forecast_time.variation.date_hierarchy"
+                    }
+                  },
+                  "last_2_4hour.forecast_time.variation.date_hierarchy.month": {
+                    "Target": {
+                      "Entity": "last_2_4hour.forecast_time.variation.date_hierarchy.month"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "last_2_4hour_forecast_time_variation_date_hierarchy_has_quarter": {
+                "Binding": {
+                  "ConceptualEntity": "last24hours"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "last_2_4hour.forecast_time.variation.date_hierarchy.quarter"
+                      },
+                      "Subject": {
+                        "Role": "last_2_4hour.forecast_time.variation.date_hierarchy"
+                      }
+                    },
+                    "ID": "forecast_time_date_hierarchies_have_forecast_time_quarters",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "last_2_4hour.forecast_time.variation.date_hierarchy": {
+                    "Target": {
+                      "Entity": "last_2_4hour.forecast_time.variation.date_hierarchy"
+                    }
+                  },
+                  "last_2_4hour.forecast_time.variation.date_hierarchy.quarter": {
+                    "Target": {
+                      "Entity": "last_2_4hour.forecast_time.variation.date_hierarchy.quarter"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "last_2_4hour_forecast_time_variation_date_hierarchy_has_year": {
+                "Binding": {
+                  "ConceptualEntity": "last24hours"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "last_2_4hour.forecast_time.variation.date_hierarchy.year"
+                      },
+                      "Subject": {
+                        "Role": "last_2_4hour.forecast_time.variation.date_hierarchy"
+                      }
+                    },
+                    "ID": "forecast_time_date_hierarchies_have_forecast_time_years",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "last_2_4hour.forecast_time.variation.date_hierarchy": {
+                    "Target": {
+                      "Entity": "last_2_4hour.forecast_time.variation.date_hierarchy"
+                    }
+                  },
+                  "last_2_4hour.forecast_time.variation.date_hierarchy.year": {
+                    "Target": {
+                      "Entity": "last_2_4hour.forecast_time.variation.date_hierarchy.year"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "last_2_4hour_has_forecast_time": {
+                "Binding": {
+                  "ConceptualEntity": "last24hours"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "last_2_4hour.forecast_time"
+                      },
+                      "Subject": {
+                        "Role": "last_2_4hour"
+                      }
+                    },
+                    "ID": "last_2_4hours_have_forecast_times",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "last_2_4hour": {
+                    "Target": {
+                      "Entity": "last_2_4hour"
+                    }
+                  },
+                  "last_2_4hour.forecast_time": {
+                    "Target": {
+                      "Entity": "last_2_4hour.forecast_time"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
               "last_2_4hour_has_getallkpis": {
                 "Binding": {
                   "ConceptualEntity": "last24hours"
@@ -3672,6 +5715,39 @@
                   "last_2_4hour": {
                     "Target": {
                       "Entity": "last_2_4hour"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "last_2_4hour_has_kpi_name": {
+                "Binding": {
+                  "ConceptualEntity": "last24hours"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "last_2_4hour.kpi_name"
+                      },
+                      "Subject": {
+                        "Role": "last_2_4hour"
+                      }
+                    },
+                    "ID": "last_2_4hours_have_kpi_names",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "last_2_4hour": {
+                    "Target": {
+                      "Entity": "last_2_4hour"
+                    }
+                  },
+                  "last_2_4hour.kpi_name": {
+                    "Target": {
+                      "Entity": "last_2_4hour.kpi_name"
                     }
                   }
                 },
@@ -3856,7 +5932,7 @@
                         "Role": "last_2_4hour"
                       }
                     },
-                    "ID": "last_2_4hours_have_time_stamps",
+                    "ID": "last_2_4hours_have_time_stamp_TZzes",
                     "State": "Generated",
                     "Weight": 0.99
                   }
@@ -3870,39 +5946,6 @@
                   "last_2_4hour.time_stamp": {
                     "Target": {
                       "Entity": "last_2_4hour.time_stamp"
-                    }
-                  }
-                },
-                "State": "Generated"
-              },
-              "last_2_4hour_has_time_stamp_TZ": {
-                "Binding": {
-                  "ConceptualEntity": "last24hours"
-                },
-                "Phrasings": [
-                  {
-                    "Attribute": {
-                      "Object": {
-                        "Role": "last_2_4hour.time_stamp_TZ"
-                      },
-                      "Subject": {
-                        "Role": "last_2_4hour"
-                      }
-                    },
-                    "ID": "last_2_4hours_have_time_stamp_TZzes",
-                    "State": "Generated",
-                    "Weight": 0.99
-                  }
-                ],
-                "Roles": {
-                  "last_2_4hour": {
-                    "Target": {
-                      "Entity": "last_2_4hour"
-                    }
-                  },
-                  "last_2_4hour.time_stamp_TZ": {
-                    "Target": {
-                      "Entity": "last_2_4hour.time_stamp_TZ"
                     }
                   }
                 },
@@ -3941,35 +5984,44 @@
                 },
                 "State": "Generated"
               },
-              "last_2_4hour_time_stamp_TZ_has_variation_date_hierarchy": {
+              "last_2_4hour_is_forecast_on_forecast_time": {
                 "Binding": {
                   "ConceptualEntity": "last24hours"
                 },
                 "Phrasings": [
                   {
-                    "Attribute": {
-                      "Object": {
-                        "Role": "last_2_4hour.time_stamp_TZ.variation.date_hierarchy"
-                      },
-                      "Subject": {
-                        "Role": "last_2_4hour.time_stamp_TZ"
-                      }
-                    },
-                    "ID": "time_stamp_TZzes_have_time_stamp_TZ_date_hierarchies",
+                    "ID": "last_2_4hours_are_forecast_on_forecast_times",
                     "State": "Generated",
-                    "Weight": 0.99
+                    "Verb": {
+                      "Object": {
+                        "Role": "last_2_4hour"
+                      },
+                      "Verbs": [
+                        {
+                          "forecast": {
+                            "State": "Generated"
+                          }
+                        }
+                      ]
+                    },
+                    "Weight": 0.9
                   }
                 ],
                 "Roles": {
-                  "last_2_4hour.time_stamp_TZ": {
+                  "last_2_4hour": {
                     "Target": {
-                      "Entity": "last_2_4hour.time_stamp_TZ"
+                      "Entity": "last_2_4hour"
                     }
                   },
-                  "last_2_4hour.time_stamp_TZ.variation.date_hierarchy": {
+                  "last_2_4hour.forecast_time": {
                     "Target": {
-                      "Entity": "last_2_4hour.time_stamp_TZ.variation.date_hierarchy"
+                      "Entity": "last_2_4hour.forecast_time"
                     }
+                  }
+                },
+                "SemanticSlots": {
+                  "When": {
+                    "Role": "last_2_4hour.forecast_time"
                   }
                 },
                 "State": "Generated"
@@ -4106,7 +6158,7 @@
                 },
                 "State": "Generated"
               },
-              "last_2_4hour_time_stamp_has_variation_date_hierarchy": {
+              "last_2_4hour_time_stamp_has_last_2_4hour_time_stamp_TZ_variation_date_hierarchy": {
                 "Binding": {
                   "ConceptualEntity": "last24hours"
                 },
@@ -4114,13 +6166,13 @@
                   {
                     "Attribute": {
                       "Object": {
-                        "Role": "last_2_4hour.time_stamp.variation.date_hierarchy"
+                        "Role": "last_2_4hour.time_stamp_TZ.variation.date_hierarchy"
                       },
                       "Subject": {
                         "Role": "last_2_4hour.time_stamp"
                       }
                     },
-                    "ID": "time_stamps_have_time_stamp_date_hierarchies",
+                    "ID": "time_stamp_TZzes_have_time_stamp_TZ_date_hierarchies",
                     "State": "Generated",
                     "Weight": 0.99
                   }
@@ -4131,141 +6183,9 @@
                       "Entity": "last_2_4hour.time_stamp"
                     }
                   },
-                  "last_2_4hour.time_stamp.variation.date_hierarchy": {
+                  "last_2_4hour.time_stamp_TZ.variation.date_hierarchy": {
                     "Target": {
-                      "Entity": "last_2_4hour.time_stamp.variation.date_hierarchy"
-                    }
-                  }
-                },
-                "State": "Generated"
-              },
-              "last_2_4hour_time_stamp_variation_date_hierarchy_has_day": {
-                "Binding": {
-                  "ConceptualEntity": "last24hours"
-                },
-                "Phrasings": [
-                  {
-                    "Attribute": {
-                      "Object": {
-                        "Role": "last_2_4hour.time_stamp.variation.date_hierarchy.day"
-                      },
-                      "Subject": {
-                        "Role": "last_2_4hour.time_stamp.variation.date_hierarchy"
-                      }
-                    },
-                    "ID": "time_stamp_date_hierarchies_have_time_stamp_days",
-                    "State": "Generated",
-                    "Weight": 0.99
-                  }
-                ],
-                "Roles": {
-                  "last_2_4hour.time_stamp.variation.date_hierarchy": {
-                    "Target": {
-                      "Entity": "last_2_4hour.time_stamp.variation.date_hierarchy"
-                    }
-                  },
-                  "last_2_4hour.time_stamp.variation.date_hierarchy.day": {
-                    "Target": {
-                      "Entity": "last_2_4hour.time_stamp.variation.date_hierarchy.day"
-                    }
-                  }
-                },
-                "State": "Generated"
-              },
-              "last_2_4hour_time_stamp_variation_date_hierarchy_has_month": {
-                "Binding": {
-                  "ConceptualEntity": "last24hours"
-                },
-                "Phrasings": [
-                  {
-                    "Attribute": {
-                      "Object": {
-                        "Role": "last_2_4hour.time_stamp.variation.date_hierarchy.month"
-                      },
-                      "Subject": {
-                        "Role": "last_2_4hour.time_stamp.variation.date_hierarchy"
-                      }
-                    },
-                    "ID": "time_stamp_date_hierarchies_have_time_stamp_months",
-                    "State": "Generated",
-                    "Weight": 0.99
-                  }
-                ],
-                "Roles": {
-                  "last_2_4hour.time_stamp.variation.date_hierarchy": {
-                    "Target": {
-                      "Entity": "last_2_4hour.time_stamp.variation.date_hierarchy"
-                    }
-                  },
-                  "last_2_4hour.time_stamp.variation.date_hierarchy.month": {
-                    "Target": {
-                      "Entity": "last_2_4hour.time_stamp.variation.date_hierarchy.month"
-                    }
-                  }
-                },
-                "State": "Generated"
-              },
-              "last_2_4hour_time_stamp_variation_date_hierarchy_has_quarter": {
-                "Binding": {
-                  "ConceptualEntity": "last24hours"
-                },
-                "Phrasings": [
-                  {
-                    "Attribute": {
-                      "Object": {
-                        "Role": "last_2_4hour.time_stamp.variation.date_hierarchy.quarter"
-                      },
-                      "Subject": {
-                        "Role": "last_2_4hour.time_stamp.variation.date_hierarchy"
-                      }
-                    },
-                    "ID": "time_stamp_date_hierarchies_have_time_stamp_quarters",
-                    "State": "Generated",
-                    "Weight": 0.99
-                  }
-                ],
-                "Roles": {
-                  "last_2_4hour.time_stamp.variation.date_hierarchy": {
-                    "Target": {
-                      "Entity": "last_2_4hour.time_stamp.variation.date_hierarchy"
-                    }
-                  },
-                  "last_2_4hour.time_stamp.variation.date_hierarchy.quarter": {
-                    "Target": {
-                      "Entity": "last_2_4hour.time_stamp.variation.date_hierarchy.quarter"
-                    }
-                  }
-                },
-                "State": "Generated"
-              },
-              "last_2_4hour_time_stamp_variation_date_hierarchy_has_year": {
-                "Binding": {
-                  "ConceptualEntity": "last24hours"
-                },
-                "Phrasings": [
-                  {
-                    "Attribute": {
-                      "Object": {
-                        "Role": "last_2_4hour.time_stamp.variation.date_hierarchy.year"
-                      },
-                      "Subject": {
-                        "Role": "last_2_4hour.time_stamp.variation.date_hierarchy"
-                      }
-                    },
-                    "ID": "time_stamp_date_hierarchies_have_time_stamp_years",
-                    "State": "Generated",
-                    "Weight": 0.99
-                  }
-                ],
-                "Roles": {
-                  "last_2_4hour.time_stamp.variation.date_hierarchy": {
-                    "Target": {
-                      "Entity": "last_2_4hour.time_stamp.variation.date_hierarchy"
-                    }
-                  },
-                  "last_2_4hour.time_stamp.variation.date_hierarchy.year": {
-                    "Target": {
-                      "Entity": "last_2_4hour.time_stamp.variation.date_hierarchy.year"
+                      "Entity": "last_2_4hour.time_stamp_TZ.variation.date_hierarchy"
                     }
                   }
                 },
@@ -4297,7 +6217,7 @@
             "value": "Navigation"
           }
         ],
-        "expression": "\"PUT YOUR FLOWS API KEY\" meta [IsParameterQuery=true, Type=\"Text\", IsParameterQueryRequired=true]",
+        "expression": "\"PUT YOUR FLOWS API KEY HERE \" meta [IsParameterQuery=true, Type=\"Text\", IsParameterQueryRequired=true]",
         "kind": "m",
         "lineageTag": "8a4fb3c7-a45b-4995-a93e-338347e4e6e2"
       },
@@ -4941,7 +6861,7 @@
               }
             ],
             "dataType": "double",
-            "expression": "AllKpiStats[hourOfDay] + AllKpiStats[TZ] ",
+            "expression": "MOD(AllKpiStats[hourOfDay] + AllKpiStats[TZ] ,24)",
             "isDataTypeInferred": true,
             "lineageTag": "3d96742d-a96e-4726-b3eb-ac9e924e8129",
             "summarizeBy": "sum",
@@ -4960,6 +6880,82 @@
             "isDataTypeInferred": true,
             "lineageTag": "b70eedd4-916c-4f02-ac9a-d0fc74cd2a98",
             "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "FreeFlow",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "expression": "LOOKUPVALUE(last24hours[overallResult.defaultValue],last24hours[kpiId],AllKpiStats[kpiId])",
+            "isDataTypeInferred": true,
+            "lineageTag": "aa3b4fd7-753a-4542-9cf8-dc4c141ef7a2",
+            "summarizeBy": "sum",
+            "type": "calculated"
+          },
+          {
+            "name": "TTI",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "expression": "AllKpiStats[meanTT] / AllKpiStats[FreeFlow]",
+            "isDataTypeInferred": true,
+            "lineageTag": "563352ed-8c77-4b2f-a9ec-04564da95e1f",
+            "summarizeBy": "sum",
+            "type": "calculated"
+          },
+          {
+            "name": "BTI",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "expression": "(AllKpiStats[quantile] - AllKpiStats[meanTT])/AllKpiStats[meanTT]",
+            "isDataTypeInferred": true,
+            "lineageTag": "fe259ee4-a389-4237-a387-362e899cd0ed",
+            "summarizeBy": "sum",
+            "type": "calculated"
+          },
+          {
+            "name": "PTI",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "expression": "AllKpiStats[quantile] / AllKpiStats[FreeFlow]",
+            "isDataTypeInferred": true,
+            "lineageTag": "fd027000-2405-45b3-a0b0-4cefa786cec5",
+            "summarizeBy": "sum",
             "type": "calculated"
           }
         ],

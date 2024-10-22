@@ -4383,7 +4383,7 @@
             "value": "Navigation"
           }
         ],
-        "expression": "\"put your api key \" meta [IsParameterQuery=true, Type=\"Text\", IsParameterQueryRequired=true]",
+        "expression": "\"PUT YOUR API KEY\" meta [IsParameterQuery=true, Type=\"Text\", IsParameterQueryRequired=true]",
         "kind": "m",
         "lineageTag": "8a4fb3c7-a45b-4995-a93e-338347e4e6e2"
       },
@@ -4469,7 +4469,7 @@
         "toTable": "LocalDateTable_778187e4-b8d3-4f91-8c2a-6920c02c721a"
       }
     ],
-    "sourceQueryCulture": "en-150",
+    "sourceQueryCulture": "it-IT",
     "tables": [
       {
         "name": "DateTableTemplate_4d58f901-14ef-484f-a186-64366d0b506d",
@@ -4931,6 +4931,11 @@
                 "value": "Automatic"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "SortByColumn"
+              }
+            ],
             "dataType": "string",
             "lineageTag": "c7a9eebc-1933-4ddb-a74b-8f4bca09136a",
             "sourceColumn": "dayOfTheWeek",
@@ -5034,6 +5039,21 @@
             "isDataTypeInferred": true,
             "lineageTag": "3d96742d-a96e-4726-b3eb-ac9e924e8129",
             "summarizeBy": "sum",
+            "type": "calculated"
+          },
+          {
+            "name": "Kpi_Name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "expression": "LOOKUPVALUE(getallkpis[Column1.name],getallkpis[Column1.kpiId],AllKpiStats[kpiId])",
+            "isDataTypeInferred": true,
+            "lineageTag": "b70eedd4-916c-4f02-ac9a-d0fc74cd2a98",
+            "summarizeBy": "none",
             "type": "calculated"
           }
         ],
@@ -5157,7 +5177,7 @@
         "annotations": [
           {
             "name": "PBI_ResultType",
-            "value": "Table"
+            "value": "Exception"
           },
           {
             "name": "PBI_NavigationStepName",

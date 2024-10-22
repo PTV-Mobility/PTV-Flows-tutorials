@@ -12,7 +12,7 @@
       },
       {
         "name": "PBIDesktopVersion",
-        "value": "2.137.751.0 (24.10)"
+        "value": "2.137.952.0 (24.10)"
       },
       {
         "name": "PBI_ProTooling",
@@ -1722,7 +1722,7 @@
                 "Definition": {
                   "Binding": {
                     "ConceptualEntity": "last24hours",
-                    "ConceptualProperty": "timeStamp"
+                    "ConceptualProperty": "timeStampTZ"
                   }
                 },
                 "SemanticType": "Time",
@@ -2289,92 +2289,6 @@
                   },
                   {
                     "timetable stamp year": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.591
-                    }
-                  }
-                ]
-              },
-              "last_2_4hour.time_stamp_TZ": {
-                "Definition": {
-                  "Binding": {
-                    "ConceptualEntity": "last24hours",
-                    "ConceptualProperty": "timeStampTZ"
-                  }
-                },
-                "SemanticType": "Time",
-                "State": "Generated",
-                "Terms": [
-                  {
-                    "time stamp TZ": {
-                      "State": "Generated"
-                    }
-                  },
-                  {
-                    "timeStampTZ": {
-                      "State": "Generated",
-                      "Type": "Noun",
-                      "Weight": 0.99
-                    }
-                  },
-                  {
-                    "date": {
-                      "State": "Generated",
-                      "Weight": 0.7
-                    }
-                  },
-                  {
-                    "stamp TZ": {
-                      "State": "Generated",
-                      "Weight": 0.97
-                    }
-                  },
-                  {
-                    "duration stamp tz": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.609
-                    }
-                  },
-                  {
-                    "interval stamp tz": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.609
-                    }
-                  },
-                  {
-                    "moment stamp tz": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.609
-                    }
-                  },
-                  {
-                    "period stamp tz": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.591
-                    }
-                  },
-                  {
-                    "timetable stamp tz": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
@@ -4365,7 +4279,7 @@
       }
     ],
     "dataAccessOptions": {
-      "fastCombine": false,
+      "fastCombine": true,
       "legacyRedirects": true,
       "returnErrorValuesAsNull": true
     },
@@ -4383,7 +4297,7 @@
             "value": "Navigation"
           }
         ],
-        "expression": "\"PUT YOUR API KEY\" meta [IsParameterQuery=true, Type=\"Text\", IsParameterQueryRequired=true]",
+        "expression": "\"PUT YOUR FLOWS API KEY\" meta [IsParameterQuery=true, Type=\"Text\", IsParameterQueryRequired=true]",
         "kind": "m",
         "lineageTag": "8a4fb3c7-a45b-4995-a93e-338347e4e6e2"
       },
@@ -4438,19 +4352,11 @@
       },
       {
         "name": "43e311f9-f30c-4cd8-8f9a-4f0d9f1de15d",
-        "fromColumn": "timeStamp",
-        "fromTable": "last24hours",
-        "joinOnDateBehavior": "datePartOnly",
-        "toColumn": "Date",
-        "toTable": "LocalDateTable_0bab0fb3-4715-4aea-a356-4b9933f9193a"
-      },
-      {
-        "name": "d073b13a-edec-45ad-9089-681f0b1f23cc",
         "fromColumn": "timeStampTZ",
         "fromTable": "last24hours",
         "joinOnDateBehavior": "datePartOnly",
         "toColumn": "Date",
-        "toTable": "LocalDateTable_e3dde58d-c700-4182-92e1-561066c037bb"
+        "toTable": "LocalDateTable_0bab0fb3-4715-4aea-a356-4b9933f9193a"
       },
       {
         "name": "90c534dd-4fe4-4feb-a7e6-8c55f2c997f0",
@@ -5177,7 +5083,7 @@
         "annotations": [
           {
             "name": "PBI_ResultType",
-            "value": "Exception"
+            "value": "Table"
           },
           {
             "name": "PBI_NavigationStepName",
@@ -5199,7 +5105,7 @@
             "summarizeBy": "none"
           },
           {
-            "name": "timeStamp",
+            "name": "timeStampTZ",
             "annotations": [
               {
                 "name": "SummarizationSetBy",
@@ -5209,7 +5115,7 @@
             "dataType": "dateTime",
             "formatString": "General Date",
             "lineageTag": "5ead1dc5-d7b1-4305-9169-e36bda50ba7b",
-            "sourceColumn": "timeStamp",
+            "sourceColumn": "timeStampTZ",
             "summarizeBy": "none",
             "variations": [
               {
@@ -5316,38 +5222,10 @@
                 "value": "Automatic"
               }
             ],
-            "dataType": "int64",
-            "formatString": "0",
+            "dataType": "string",
             "lineageTag": "a49feb7f-14a8-47e4-b7e0-ecc6728cb2d8",
             "sourceColumn": "TZ",
-            "summarizeBy": "sum"
-          },
-          {
-            "name": "timeStampTZ",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "dateTime",
-            "expression": "last24hours[timeStamp] + TIME( 'last24hours'[TZ], 0, 0)",
-            "formatString": "General Date",
-            "isDataTypeInferred": true,
-            "lineageTag": "a252e4fb-3be4-41b4-a0ac-4811e2d8a3f6",
-            "summarizeBy": "none",
-            "type": "calculated",
-            "variations": [
-              {
-                "name": "Variation",
-                "defaultHierarchy": {
-                  "hierarchy": "Date Hierarchy",
-                  "table": "LocalDateTable_e3dde58d-c700-4182-92e1-561066c037bb"
-                },
-                "isDefault": true,
-                "relationship": "d073b13a-edec-45ad-9089-681f0b1f23cc"
-              }
-            ]
+            "summarizeBy": "none"
           },
           {
             "name": "Kpi_Name",
@@ -5440,9 +5318,9 @@
                 "    #\"Expanded overallResult\" = Table.ExpandRecordColumn(#\"Removed Columns\", \"overallResult\", {\"value\", \"defaultValue\", \"unusualValue\", \"averageValue\", \"progressive\"}, {\"overallResult.value\", \"overallResult.defaultValue\", \"overallResult.unusualValue\", \"overallResult.averageValue\", \"overallResult.progressive\"}),",
                 "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Expanded overallResult\",{{\"overallResult.value\", type number}, {\"overallResult.defaultValue\", type number}, {\"overallResult.unusualValue\", type number}, {\"overallResult.averageValue\", type number}, {\"overallResult.progressive\", type number}}),",
                 "    #\"Added Custom\" = Table.AddColumn(#\"Changed Type\", \"TZ\", each TIMEZONE),",
-                "    #\"Changed Type1\" = Table.TransformColumnTypes(#\"Added Custom\",{{\"TZ\", Int64.Type}})",
+                "    #\"Renamed Columns\" = Table.RenameColumns(#\"Added Custom\",{{\"timeStamp\", \"timeStampTZ\"}})",
                 "in",
-                "    #\"Changed Type1\""
+                "    #\"Renamed Columns\""
               ],
               "type": "m"
             }
@@ -5641,207 +5519,6 @@
         "partitions": [
           {
             "name": "LocalDateTable_0bab0fb3-4715-4aea-a356-4b9933f9193a",
-            "mode": "import",
-            "source": {
-              "expression": "Calendar(Date(Year(MIN('last24hours'[timeStamp])), 1, 1), Date(Year(MAX('last24hours'[timeStamp])), 12, 31))",
-              "type": "calculated"
-            }
-          }
-        ],
-        "showAsVariationsOnly": true
-      },
-      {
-        "name": "LocalDateTable_e3dde58d-c700-4182-92e1-561066c037bb",
-        "annotations": [
-          {
-            "name": "__PBI_LocalDateTable",
-            "value": "true"
-          }
-        ],
-        "columns": [
-          {
-            "name": "Date",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "User"
-              }
-            ],
-            "dataCategory": "PaddedDateTableDates",
-            "dataType": "dateTime",
-            "isHidden": true,
-            "isNameInferred": true,
-            "lineageTag": "8a63f075-19e8-4f24-a01e-8b12eb2bb282",
-            "sourceColumn": "[Date]",
-            "summarizeBy": "none",
-            "type": "calculatedTableColumn"
-          },
-          {
-            "name": "Year",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "User"
-              },
-              {
-                "name": "TemplateId",
-                "value": "Year"
-              }
-            ],
-            "dataCategory": "Years",
-            "dataType": "int64",
-            "expression": "YEAR([Date])",
-            "isHidden": true,
-            "lineageTag": "52729d48-873c-49b8-a2a7-71dd94322245",
-            "summarizeBy": "none",
-            "type": "calculated"
-          },
-          {
-            "name": "MonthNo",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "User"
-              },
-              {
-                "name": "TemplateId",
-                "value": "MonthNumber"
-              }
-            ],
-            "dataCategory": "MonthOfYear",
-            "dataType": "int64",
-            "expression": "MONTH([Date])",
-            "isHidden": true,
-            "lineageTag": "c62fd572-67da-4531-8e0a-da08fedebf17",
-            "summarizeBy": "none",
-            "type": "calculated"
-          },
-          {
-            "name": "Month",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "User"
-              },
-              {
-                "name": "TemplateId",
-                "value": "Month"
-              }
-            ],
-            "dataCategory": "Months",
-            "dataType": "string",
-            "expression": "FORMAT([Date], \"MMMM\")",
-            "isHidden": true,
-            "lineageTag": "59275858-6430-4c2f-bfb0-1eb44ce9ccc7",
-            "sortByColumn": "MonthNo",
-            "summarizeBy": "none",
-            "type": "calculated"
-          },
-          {
-            "name": "QuarterNo",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "User"
-              },
-              {
-                "name": "TemplateId",
-                "value": "QuarterNumber"
-              }
-            ],
-            "dataCategory": "QuarterOfYear",
-            "dataType": "int64",
-            "expression": "INT(([MonthNo] + 2) / 3)",
-            "isHidden": true,
-            "lineageTag": "affc233b-bc57-4f2c-b460-fc3adec78ab4",
-            "summarizeBy": "none",
-            "type": "calculated"
-          },
-          {
-            "name": "Quarter",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "User"
-              },
-              {
-                "name": "TemplateId",
-                "value": "Quarter"
-              }
-            ],
-            "dataCategory": "Quarters",
-            "dataType": "string",
-            "expression": "\"Qtr \" & [QuarterNo]",
-            "isHidden": true,
-            "lineageTag": "d1f47cc9-2dcb-472a-8fc3-da877c0581b7",
-            "sortByColumn": "QuarterNo",
-            "summarizeBy": "none",
-            "type": "calculated"
-          },
-          {
-            "name": "Day",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "User"
-              },
-              {
-                "name": "TemplateId",
-                "value": "Day"
-              }
-            ],
-            "dataCategory": "DayOfMonth",
-            "dataType": "int64",
-            "expression": "DAY([Date])",
-            "isHidden": true,
-            "lineageTag": "8d63251e-cefd-4ef7-9fb8-2767588c69c8",
-            "summarizeBy": "none",
-            "type": "calculated"
-          }
-        ],
-        "hierarchies": [
-          {
-            "name": "Date Hierarchy",
-            "annotations": [
-              {
-                "name": "TemplateId",
-                "value": "DateHierarchy"
-              }
-            ],
-            "levels": [
-              {
-                "name": "Year",
-                "column": "Year",
-                "lineageTag": "3b4679fc-d3b7-4143-8faa-045860f15bfe",
-                "ordinal": 0
-              },
-              {
-                "name": "Quarter",
-                "column": "Quarter",
-                "lineageTag": "13b4c3a1-0463-438e-bb19-933ef7c2f7f1",
-                "ordinal": 1
-              },
-              {
-                "name": "Month",
-                "column": "Month",
-                "lineageTag": "5e90efe0-5aa1-4745-91f0-9acf42f18c4f",
-                "ordinal": 2
-              },
-              {
-                "name": "Day",
-                "column": "Day",
-                "lineageTag": "d4e811d4-dea5-4fe9-b737-87c7bd1efa68",
-                "ordinal": 3
-              }
-            ],
-            "lineageTag": "2ae088d0-5dce-4db9-91d1-88ae6b128f54"
-          }
-        ],
-        "isHidden": true,
-        "lineageTag": "50bb6257-aa03-4260-a385-bd19e09951f0",
-        "partitions": [
-          {
-            "name": "LocalDateTable_e3dde58d-c700-4182-92e1-561066c037bb",
             "mode": "import",
             "source": {
               "expression": "Calendar(Date(Year(MIN('last24hours'[timeStampTZ])), 1, 1), Date(Year(MAX('last24hours'[timeStampTZ])), 12, 31))",

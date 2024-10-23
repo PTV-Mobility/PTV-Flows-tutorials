@@ -12,7 +12,7 @@
       },
       {
         "name": "PBIDesktopVersion",
-        "value": "2.137.952.0 (24.10)"
+        "value": "2.137.751.0 (24.10)"
       },
       {
         "name": "PBI_ProTooling",
@@ -6217,7 +6217,7 @@
             "value": "Navigation"
           }
         ],
-        "expression": "\"PUT YOUR FLOWS API KEY HERE \" meta [IsParameterQuery=true, Type=\"Text\", IsParameterQueryRequired=true]",
+        "expression": "\"PUT YOUR FLOWS API KEY HERE"\" meta [IsParameterQuery=true, Type=\"Text\", IsParameterQueryRequired=true]",
         "kind": "m",
         "lineageTag": "8a4fb3c7-a45b-4995-a93e-338347e4e6e2"
       },
@@ -6701,7 +6701,7 @@
         "annotations": [
           {
             "name": "PBI_ResultType",
-            "value": "Exception"
+            "value": "Table"
           },
           {
             "name": "PBI_NavigationStepName",

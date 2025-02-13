@@ -17,7 +17,7 @@ This folder contains an Excel file and instructions to help you retrieve existin
 - by pressing the "Get HDA DETAILED data" button download the detailed data
 - by pressing the "Create heatmap" button you create the heatmap in  the HEATMAP tab
 
-## Notes
+## Notes 
 
 - Ensure that macros and external data connections are enabled in Excel to allow the scripts to run.
 - The Excel file is designed to work with PTV Flows APIs, so an active internet connection is required.

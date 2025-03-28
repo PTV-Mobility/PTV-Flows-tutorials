@@ -2,7 +2,7 @@ This folder contains an Excel file and instructions to help you retrieve existin
 
 ## Files
 
-- **`20250131 HDA Heatmap Example.xlsx`**: An Excel file that allows you to retrieve the existing KPIs of your PTV Flows instance via scripts and query the Historical Data Analysis (HDA) module for specific KPI detailed results, creating a heatmap for the specified date range.
+- **`PTV Flows HDA analysis excel tool.xlsx`**: An Excel file that allows you to retrieve the existing KPIs of your PTV Flows instance via scripts and query the Historical Data Analysis (HDA) module for specific KPI detailed results, creating a heatmap for the specified date range, and many other analysis
 
 ## Prerequisites
 

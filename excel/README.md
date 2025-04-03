@@ -6,8 +6,9 @@ This folder contains an Excel file and instructions to help you retrieve existin
 
 ## Prerequisites
 
-- Microsoft Excel
+- Microsoft Excel *Desktop* version
 - PTV Flows API Key
+- An Office 365 work or schoool account
 
 ## Instructions:
 

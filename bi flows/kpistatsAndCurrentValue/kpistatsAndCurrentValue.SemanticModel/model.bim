@@ -12,7 +12,7 @@
       },
       {
         "name": "PBIDesktopVersion",
-        "value": "2.137.751.0 (24.10)"
+        "value": "2.142.928.0 (25.04)+de52df9f0bb74ad93a80d89c52d63fe6d07e0e1b"
       },
       {
         "name": "PBI_ProTooling",
@@ -6217,7 +6217,7 @@
             "value": "Navigation"
           }
         ],
-        "expression": "\"PUT YOUR FLOWS API KEY HERE\" meta [IsParameterQuery=true, Type=\"Text\", IsParameterQueryRequired=true]",
+        "expression": "\"PUT YOUR PTV FLOWS API KEY HERE \" meta [IsParameterQuery=true, Type=\"Text\", IsParameterQueryRequired=true]",
         "kind": "m",
         "lineageTag": "8a4fb3c7-a45b-4995-a93e-338347e4e6e2"
       },
@@ -6507,7 +6507,7 @@
         "annotations": [
           {
             "name": "PBI_ResultType",
-            "value": "Table"
+            "value": "Exception"
           },
           {
             "name": "PBI_NavigationStepName",
@@ -6664,7 +6664,7 @@
                 "            null,",
                 "",
                 "    // Define the base URL",
-                "    BaseUrl = \"https://api.myptv.com/kpieng/v1/instance/all\",",
+                "    BaseUrl = \"https://api.ptvgroup.tech/kpieng/v1/instance/all\",",
                 "",
                 "    // Set the headers",
                 "    Headers = [",
@@ -6972,7 +6972,7 @@
                 "",
                 "    // Fetch all KPI IDs",
                 "    getallkpis = let",
-                "        Source = Json.Document(Web.Contents(\"https://api.myptv.com/kpieng/v1/instance/all\", [Headers=[apiKey=apikey]])),",
+                "        Source = Json.Document(Web.Contents(\"https://api.ptvgroup.tech/kpieng/v1/instance/all\", [Headers=[apiKey=apikey]])),",
                 "        ResponseTable = Table.FromList(Source, Splitter.SplitByNothing(), null, null, ExtraValues.Error),",
                 "        ExpandedColumns = Table.ExpandRecordColumn(ResponseTable, \"Column1\", {\"kpiId\"}, {\"kpiId\"})",
                 "    in",
@@ -6984,7 +6984,7 @@
                 "    // Function to fetch stats for a specific kpiId and dayOfWeek",
                 "    FetchStats = (kpiId as text, dayOfWeek as text) =>",
                 "    let",
-                "        BaseUrl = \"https://api.myptv.com/kpistats/v1/stats/by-kpi-id\",",
+                "        BaseUrl = \"https://api.ptvgroup.tech/kpistats/v1/stats/by-kpi-id\",",
                 "        FullUrl = BaseUrl & \"?\" & \"kpiId=\" & kpiId & \"&dayOfWeek=\" & dayOfWeek,",
                 "        Headers = [",
                 "            #\"apiKey\" = apikey,",
@@ -7279,7 +7279,7 @@
                 "",
                 "    // Fetch all KPI IDs",
                 "    getallkpis = let",
-                "        Source = Json.Document(Web.Contents(\"https://api.myptv.com/kpieng/v1/instance/all\", [Headers=[apiKey=apikey]])),",
+                "        Source = Json.Document(Web.Contents(\"https://api.ptvgroup.tech/kpieng/v1/instance/all\", [Headers=[apiKey=apikey]])),",
                 "        ResponseTable = Table.FromList(Source, Splitter.SplitByNothing(), null, null, ExtraValues.Error),",
                 "        ExpandedColumns = Table.ExpandRecordColumn(ResponseTable, \"Column1\", {\"kpiId\"}, {\"kpiId\"})",
                 "    in",
@@ -7288,7 +7288,7 @@
                 "    // Function to fetch last 24 hours data for a specific kpiId",
                 "    FetchLast24HoursData = (kpiId as text) =>",
                 "    let",
-                "        BaseUrl = \"https://api.myptv.com/kpieng/v1/result/by-kpi-id\",",
+                "        BaseUrl = \"https://api.ptvgroup.tech/kpieng/v1/result/by-kpi-id\",",
                 "        FullUrl = BaseUrl & \"?\" & \"kpiId=\" & kpiId,",
                 "        Headers = [",
                 "            #\"apiKey\" = apikey,",

@@ -4,8 +4,8 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 0,
-        "y": 7653.2542038475531
+        "x": 158.46829406281125,
+        "y": 12428.441920069054
       },
       "nodes": [
         {
@@ -57,23 +57,24 @@
             "height": 248,
             "width": 234
           },
-          "zIndex": 1
+          "zIndex": 5
         },
         {
           "location": {
-            "x": 1044,
-            "y": 4505.2605255890148
+            "x": 1245.3421920980506,
+            "y": 11805.570321949281
           },
           "nodeIndex": "JoinKPILocationTable",
+          "nodeLineageTag": "4116cd84-6355-43a2-85d2-4ba30baece8d",
           "size": {
             "height": 200,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 1
         }
       ],
       "name": "All tables",
-      "zoomValue": 62.33608959042386,
+      "zoomValue": 110.43218521090165,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,

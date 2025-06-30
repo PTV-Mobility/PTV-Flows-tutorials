@@ -7,7 +7,7 @@ python3 -m pip install --upgrade pip
 pip install black flake8 isort mypy pytest debugpy
 
 # Optional: install data science packages
-pip install numpy pandas matplotlib jupyter
+pip install numpy pandas matplotlib jupyter protobuf
 
 # Clean up if needed
 pip cache purge

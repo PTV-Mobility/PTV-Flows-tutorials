@@ -12,5 +12,4 @@ pip install numpy pandas matplotlib jupyter
 # Clean up if needed
 pip cache purge
 
-chmod +x .devcontainer/post-create.sh
 

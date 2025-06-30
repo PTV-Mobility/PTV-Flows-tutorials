@@ -1357,13 +1357,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://api.dev.myptv.com/meta/services/hda/v1/openapi.json",
+					"raw": "https://api.dev.ptvgroup.tech/meta/services/hda/v1/openapi.json",
 					"protocol": "https",
 					"host": [
 						"api",
 						"dev",
-						"myptv",
-						"com"
+						"ptvgroup",
+						"tech"
 					],
 					"path": [
 						"meta",
@@ -1422,7 +1422,7 @@
 	"variable": [
 		{
 			"key": "baseUrl",
-			"value": "https://api.myptv.com/hda/v1",
+			"value": "https://api.ptvgroup.tech/hda/v1",
 			"disabled": true
 		},
 		{

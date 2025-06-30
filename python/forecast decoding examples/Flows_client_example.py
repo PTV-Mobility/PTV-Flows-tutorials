@@ -8,7 +8,7 @@ import logging
 
 # Constants
 API_KEY_PROMPT = "Please enter your PTV API key: "
-API_URL = "https://api.myptv.com/mlf/v1/forecast/realtime"
+API_URL = "https://api.ptvgroup.tech/mlf/v1/forecast/realtime"
 FILE_PATH = '../create_protobuf_street_forecast/street_forecast_pb2.py'
 
 # Logging configuration

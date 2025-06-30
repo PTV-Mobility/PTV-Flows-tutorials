@@ -24,9 +24,9 @@ logging.info("Starting the application")
 API_KEY='" & apikey & "'
 
 # Define the base URLs for the different API endpoints
-KPI_ENG_URL = "https://api.myptv.com/kpieng/v1/instance/all"
-KPI_HISTORICAL_URL = "https://api.myptv.com/kpistats/v1/historical/result/by-kpi-id"
-KPI_24HOURS_URL = "https://api.myptv.com/kpieng/v1/result/by-kpi-id"
+KPI_ENG_URL = "https://api.ptvgroup.tech/kpieng/v1/instance/all"
+KPI_HISTORICAL_URL = "https://api.ptvgroup.tech/kpistats/v1/historical/result/by-kpi-id"
+KPI_24HOURS_URL = "https://api.ptvgroup.tech/kpieng/v1/result/by-kpi-id"
 
 
 # Define headers for the API requests

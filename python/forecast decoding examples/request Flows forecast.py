@@ -5,7 +5,7 @@ print("WARNING: You need a working PTV Flows instance with an API key enabled to
 API_KEY = input("Please enter your PTV API key: ")
 
 # URL for the API request
-url = f"https://api.myptv.com/mlf/v1/forecast/realtime?apiKey={API_KEY}"
+url = f"https://api.ptvgroup.tech/mlf/v1/forecast/realtime?apiKey={API_KEY}"
 
 # Empty payload and headers for the GET request
 payload = {}

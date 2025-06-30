@@ -97,7 +97,7 @@ def download_and_install_protoc():
 protoc_path = check_protoc_installed()
 
 # Step 1: Retrieve the OpenAPI JSON from the provided URL
-url = 'https://api.myptv.com/meta/services/mlf/v1/openapi.json'
+url = 'https://api.ptvgroup.tech/meta/services/mlf/v1/openapi.json'
 response = requests.get(url)
 openapi_json = response.json()
 

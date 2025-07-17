@@ -1,0 +1,39 @@
+This document describes the use of example scripts that illustrate an interface between PTV-Flows and PTV-Visum. 
+
+Three example scripts are provided:
+
+	1) flows_api_visum_import.py: Imports KPIs defined in PTV-Flows supervisor as PrT paths into a target PTV-Visum version file 
+	2) flows_api_kpis_heatmap.py: Generates a heatmap and line chart to display speed profile for a select PrT path   
+	 
+
+These scripts can be tested on the following Visum example version file (provided that you have access to a PTV Flows instance in the same geographical area): 
+	- SBA_PDX_Flows_Example.ver
+	
+The interfacing uses REST API and needs the requests module in Python. It also requires a PTV-Flows API key. Request a free trail at https://www.ptvgroup.com/en/products/ptv-flows to obtain a PTV-Flows API key.
+
+Follow the steps below to test the example scripts:
+
+STEP 1) Prepare the version file:
+	- Open the version file in PTV-Visum 
+	- Go to Network > Network settings > User-defined attributes
+	- Enter the PTV-Flows API in the FLOWSKEY attribute 
+	- Enter the TSys code for map-matching in the MATCH_TSYS attribute (this will most commonly be the TSys for the drive-alone or shared-ride mode in your network
+	  *If you are using the file: SBA_PDX_Flows_Example.ver, the MATCH_TSYS = h
+	- Save the version file 
+	
+	* More information about using PTV-Visum can be found at this link: https://cgi.ptvgroup.com/vision-help/VISUM_2025_ENG/Content/TitelCopyright/Index.htm 
+		
+STEP 2) Run the interfacing scripts:
+	- flows_api_visum_import.py:
+		a) Make sure that the target network is projected in WGS (lat/lon) coordinates and that there are KPI segments defined in the PTV-Flows instance
+		b) Drag and drop the script over Visum 
+		c) Paths will be map-matched to the target network and imported at PrT paths with some basic properties set for each path including its kpiId 
+		
+	- flows_api_kpis_heatmap.py:
+		a) Drag and drop the script over PTV-Visum
+		b) A floating widget will pop up
+		c) Select the PrT paths tab in the network layers and click Run 
+		d) A heatmap and line chart with the speed profile along the path will be shown
+		   
+		   *The selected PrT path must have a valid kpiId. It should have been collecting data for at-least a day to display 24hr results. 
+		

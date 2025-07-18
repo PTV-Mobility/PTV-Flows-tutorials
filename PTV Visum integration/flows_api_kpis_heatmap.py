@@ -17,7 +17,7 @@ import os
 PRIO = 20480
 # import tkinter as tk
 # from tkcalendar import DateEntry
-key  = Visum.Net.AttValue("FLOWSKEY") #"RVVfYTIwMTIyNzM0ZTE2NDUwN2JmMzJjZDE5NTY5NTc5ZDk6N2ZhNjFmMjItY2ExMy00MGM0LWI4NWYtYmQ4MmFhMmM4ZmZk"
+key  = Visum.Net.AttValue("FLOWSKEY") #"your PTV FLOWS api KEY here"
 
 
 # Define the colormap

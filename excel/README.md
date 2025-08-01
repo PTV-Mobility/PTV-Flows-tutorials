@@ -12,6 +12,8 @@ This folder contains an Excel file and instructions to help you retrieve existin
 
 ## Instructions:
 
+- copy the folder "Office Scripts" in your equivalent company/school OneDrive account (under the Documents folder) ; WARNING: please avoid to overwrite your scripts if they are not from this project and they have the same name.
+- open the excel file 
 - read the readme tab inside the excel file for instructions
 
 ## Notes 

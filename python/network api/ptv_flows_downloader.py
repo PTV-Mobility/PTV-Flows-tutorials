@@ -282,7 +282,7 @@ def main():
     args = parser.parse_args()
     
     # Default API key (updated)
-    default_api_key = "RVVfNDcxZDBhYTNmZmI0NGRiZTgxODdmZjgyODU2MzQ3MTY6MjkzOWU4OGMtODk4OS00NzBmLTg4MWUtZWRiYmViYmU2MWRk"
+    default_api_key = "change_me_to_your_api_key"
     api_key = args.api_key or default_api_key
     
     # Create output directory if it doesn't exist

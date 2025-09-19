@@ -18,7 +18,8 @@ def run_example():
     print("and save it to both CSV and TopoJSON formats.")
     print()
     
-    # Rome coordinates (small area around Colosseum)
+    # Rome coordinates (small area around EUR - Roma)
+    
     rome_coords = "12.442961, 41.817077, 12.491369, 41.845216"
     
     print(f"Using coordinates: {rome_coords}")

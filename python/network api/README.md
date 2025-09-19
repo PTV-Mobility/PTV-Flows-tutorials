@@ -27,7 +27,7 @@ This tutorial demonstrates how to download network data from the PTV Flows API, 
 - Interactive bounding box input with validation
 - Spatial filtering by bounding box intersection
 - Exports data in CSV and TopoJSON formats
-- Support for both staging and production API endpoints
+-- Support for production API endpoint
 - Comprehensive error handling and logging
 
 ## Prerequisites

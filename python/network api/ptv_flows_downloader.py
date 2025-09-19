@@ -272,7 +272,7 @@ def save_to_topojson(gdf: gpd.GeoDataFrame, output_path: str):
 def main():
     """Main function."""
     parser = argparse.ArgumentParser(description='Download and filter PTV Flows network data')
-    parser.add_argument('--api-key', type=str, 
+    parser.add_argument('--api-key', type=str,
                        help='PTV API key (if not provided, will use default from script)')
     parser.add_argument('--output-dir', type=str, default='.',
                        help='Output directory for files (default: current directory)')

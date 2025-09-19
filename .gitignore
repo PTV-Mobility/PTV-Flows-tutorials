@@ -15,3 +15,5 @@ bi flows/kpistatsAndCurrentValue/kpistatsAndCurrentValue.SemanticModel/.pbi/cach
 bi flows/kpistatsAndCurrentValue/kpistatsAndCurrentValue.SemanticModel/.pbi/cache.abf
 excel/~$PTV Flows HDA analysis excel tool.xlsx
 /python/network api/.venv
+python/network api/ptv_flows_network_12.442961_41.817077_12.491369_41.845216.csv
+python/network api/ptv_flows_network_12.442961_41.817077_12.491369_41.845216.topojson

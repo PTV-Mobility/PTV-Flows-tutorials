@@ -171,7 +171,11 @@ def filter_network_by_bbox(network_flows, bbox: Tuple[float, float, float, float
                 street_data = {
                     'id': street.id,
                     'from_node_id': street.from_node_id,
-                    'openlr': street.openlr.hex() if street.openlr else None,  # Convert bytes to hex string
+                    # OpenLR is stored as bytes in the protobuf; decode to UTF-8 text
+                    # (it typically contains a base64/text representation). Previously
+                    # the code used .hex() which produced a hex string. Decode so the
+                    # output matches the original textual OpenLR value.
+                    'openlr': street.openlr.decode('utf-8') if street.openlr else None,
                     'functional_road_class': street.functional_road_class,
                     'form_of_way': street.form_of_way,
                     'free_flow_speed_kmph': street.free_flow_speed_kmph,

@@ -17,3 +17,6 @@ excel/~$PTV Flows HDA analysis excel tool.xlsx
 /python/network api/.venv
 python/network api/ptv_flows_network_12.442961_41.817077_12.491369_41.845216.csv
 python/network api/ptv_flows_network_12.442961_41.817077_12.491369_41.845216.topojson
+/python/network api/example_output
+python/network api/example_data.csv
+python/network api/plan/plan.txt

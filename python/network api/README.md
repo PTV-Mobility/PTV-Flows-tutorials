@@ -158,6 +158,29 @@ If you need to set up the complete environment including the FMM library, refer 
 - `requirements.txt`: Python package dependencies
 - `script to create enviroment for map matching flows.bash`: Full environment setup script
 
+## Utilities
+
+### Flatten parquet to CSV/Parquet
+
+There is a helper script that reads the example parquet produced in `example_output/`,
+explodes the nested `values` column and writes a flattened parquet and CSV file:
+
+- Script: `scripts/deserialize_parquet.py`
+- Input: the first `.parquet` file found in `example_output/`
+- Outputs written to `example_output/`:
+   - `flattened.parquet` — flattened parquet file
+   - `flattened.csv` — flattened CSV with datetimes as ISO strings
+
+Example (recommended: use the included virtual environment):
+
+```powershell
+# run without activating the venv interactively by calling the venv python directly
+& ".\.venv\Scripts\python.exe" scripts\deserialize_parquet.py
+```
+
+After running you will find `example_output/flattened.csv` and `example_output/flattened.parquet`.
+
+
 ## License
 
 This script is based on the existing FlowsNetMatching project and inherits its licensing terms.

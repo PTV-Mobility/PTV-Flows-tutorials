@@ -11,5 +11,4 @@ pip install numpy pandas matplotlib jupyter protobuf
 
 # Clean up if needed
 pip cache purge
-
-
+echo "Development environment setup complete."

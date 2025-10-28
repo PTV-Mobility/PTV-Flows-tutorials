@@ -17,6 +17,7 @@ A collection of tutorials for using PTV Flows, covering various tools and functi
 - [License](#license)
 
 ## Introduction
+  - [PTV Flows Network Downloader](#ptv-flows-network-downloader)
 
 This repository contains tutorials for using PTV Flows, a powerful tool for traffic forecast and monitoring. These tutorials provide step-by-step instructions and examples for leveraging PTV Flows in various scenarios.
 
@@ -119,3 +120,31 @@ The `forecast_decoding_examples` folder contains scripts that demonstrate how to
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+ ## PTV Flows Network Downloader (python/network api/ptv_flows_downloader.py)
+
+ The `ptv_flows_downloader.py` script downloads the PTV Flows street network protobuf message, optionally filters it by a bounding box, and exports the result to CSV and TopoJSON.
+
+ Usage examples:
+
+ - Download using an environment variable for the API key and interactively provide a bbox:
+
+ ```bash
+ export PTV_API_KEY="your_api_key_here"
+ python "python/network api/ptv_flows_downloader.py"
+ ```
+
+ - Provide a bbox on the command line (min_lon,min_lat,max_lon,max_lat):
+
+ ```bash
+ python "python/network api/ptv_flows_downloader.py" --bbox="2.3,48.8,2.4,48.9" --output-dir=out
+ ```
+
+ - Skip bounding-box filtering and process the entire network (may be large and memory/time intensive):
+
+ ```bash
+ python "python/network api/ptv_flows_downloader.py" --no-filter --output-dir=out
+ ```
+
+ Notes:
+ - If neither `--bbox` nor `--no-filter` are provided the script will prompt for a bounding box interactively.
+ - For large areas or `--no-filter`, ensure you have sufficient disk space and memory.

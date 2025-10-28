@@ -275,26 +275,55 @@ def save_to_topojson(gdf: gpd.GeoDataFrame, output_path: str):
 
 def main():
     """Main function."""
-    parser = argparse.ArgumentParser(description='Download and filter PTV Flows network data')
+    parser = argparse.ArgumentParser(
+        description='Download and (optionally) filter PTV Flows network data and export to CSV/TopoJSON')
     parser.add_argument('--api-key', type=str,
-                       help='PTV API key (if not provided, will use default from script)')
+                        help='PTV API key. Can also be provided via PTV_API_KEY environment variable.')
     parser.add_argument('--output-dir', type=str, default='.',
-                       help='Output directory for files (default: current directory)')
+                        help='Output directory for files (default: current directory)')
     parser.add_argument('--debug', action='store_true',
-                       help='Enable debug mode (saves raw downloaded data)')
+                        help='Enable debug mode (saves raw downloaded data)')
+    parser.add_argument('--bbox', type=str,
+                        help='Bounding box as min_lon,min_lat,max_lon,max_lat (no spaces). If provided, skips interactive prompt')
+    parser.add_argument('--no-filter', action='store_true',
+                        help='Do not filter by bounding box; process the entire network (may be large)')
     
     args = parser.parse_args()
     
     # Default API key (updated)
-    default_api_key = "change_me_to_your_api_key"
+    default_api_key = os.environ.get('PTV_API_KEY', "change_me_to_your_api_key")
     api_key = args.api_key or default_api_key
     
     # Create output directory if it doesn't exist
     os.makedirs(args.output_dir, exist_ok=True)
     
     try:
-        # Get bounding box from user
-        bbox = get_bounding_box_from_user()
+        # Determine bounding box behaviour
+        if args.no_filter:
+            # full-world bbox — effectively no filtering
+            bbox = (-180.0, -90.0, 180.0, 90.0)
+            logger.info("--no-filter set: processing entire network (world bbox)")
+        elif args.bbox:
+            try:
+                coords = [float(x) for x in args.bbox.split(',')]
+                if len(coords) != 4:
+                    raise ValueError('Expected 4 comma-separated numeric values')
+                min_lon, min_lat, max_lon, max_lat = coords
+                # basic validation
+                if not (-180 <= min_lon <= 180 and -180 <= max_lon <= 180):
+                    raise ValueError('Longitude must be between -180 and 180')
+                if not (-90 <= min_lat <= 90 and -90 <= max_lat <= 90):
+                    raise ValueError('Latitude must be between -90 and 90')
+                if min_lon >= max_lon or min_lat >= max_lat:
+                    raise ValueError('min values must be strictly less than max values')
+                bbox = (min_lon, min_lat, max_lon, max_lat)
+                logger.info(f"Using bbox from --bbox: {bbox}")
+            except Exception as e:
+                logger.error(f"Invalid --bbox value: {e}")
+                sys.exit(2)
+        else:
+            # Interactive prompt (existing behaviour)
+            bbox = get_bounding_box_from_user()
         
         # Download data from PTV Flows API
         logger.info("Downloading data from PTV Flows API...")

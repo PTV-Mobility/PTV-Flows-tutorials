@@ -11,13 +11,14 @@ A collection of tutorials for using PTV Flows, covering various tools and functi
   - [Microsoft BI for Flows](#microsoft-bi-for-flows)
   - [Excel Example](#excel-example)
   - [Python](#python)
+    - [Historical Data API (HDA) Tutorial](#historical-data-api-hda-tutorial) 🆕
     - [Create Protobuf Street Forecast](#create-protobuf-street-forecast)
     - [Create Protobuf Street Network](#create-protobuf-street-network)
     - [Forecast Decoding Examples](#forecast-decoding-examples)
+    - [PTV Flows Network Downloader](#ptv-flows-network-downloader)
 - [License](#license)
 
 ## Introduction
-  - [PTV Flows Network Downloader](#ptv-flows-network-downloader)
 
 This repository contains tutorials for using PTV Flows, a powerful tool for traffic forecast and monitoring. These tutorials provide step-by-step instructions and examples for leveraging PTV Flows in various scenarios.
 
@@ -65,6 +66,33 @@ The `excel` folder contains an Excel file and related instructions that demonstr
 ### Python
 
 The `python` folder contains Python scripts demonstrating the usage of PTV Flows APIs. 
+
+#### Historical Data API (HDA) Tutorial 🆕
+
+**[UNDER CONSTRUCTION - Phase 1 Complete]**
+
+The `python/hda api/` folder contains a comprehensive tutorial for using the PTV Flows Historical Data API. This tutorial provides access to traffic statistics, KPI monitoring, time series analysis, and network performance data.
+
+**Features:**
+- Complete Python client for all 9 HDA API endpoints
+- Interactive examples and demonstrations
+- Multiple output formats (JSON, Parquet, CSV)
+- Statistical analysis and visualization capabilities
+- Automated setup and dependency management
+
+**Quick Start:**
+```bash
+cd "python/hda api"
+python setup.py          # Install dependencies
+python example.py         # Run interactive tutorial
+```
+
+**Status:**
+- ✅ Phase 1: Core infrastructure complete
+- 🔄 Phase 2: Advanced analysis scripts (planned)
+- ⏸️ Phase 3: Testing and final polish (planned)
+
+See [`python/hda api/README.md`](python/hda%20api/README.md) for detailed documentation.
 
 #### Create Protobuf Street Forecast
 

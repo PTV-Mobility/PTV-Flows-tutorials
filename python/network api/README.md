@@ -183,4 +183,4 @@ After running you will find `example_output/flattened.csv` and `example_output/f
 
 ## License
 
-This script is based on the existing FlowsNetMatching project and inherits its licensing terms.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.

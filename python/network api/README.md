@@ -183,4 +183,4 @@ After running you will find `example_output/flattened.csv` and `example_output/f
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the  LICENSE at https://github.com/PTV-Mobility/PTV-Flows-tutorials/blob/19da1c7a603f988ffd806fa0425dd7ae9902ab08/LICENSE  for details.

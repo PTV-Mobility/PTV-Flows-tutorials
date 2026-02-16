@@ -1,0 +1,24 @@
+# PTV Flows Network Downloader - Requirements
+# Standalone project for downloading and filtering PTV Flows network data
+
+# Core data processing
+pandas>=1.5.0
+numpy>=1.21.0
+
+# Geospatial libraries
+geopandas>=0.12.0
+shapely>=1.8.0
+
+# API and data handling
+requests>=2.28.0
+protobuf>=5.29.6
+
+# TopoJSON export
+topojson>=1.0.0
+
+# Optional: Excel support for compatibility
+openpyxl>=3.0.0
+
+# Optional: Visualization (for debugging/exploration)
+matplotlib>=3.5.0
+folium>=0.12.0

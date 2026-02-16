@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package com.ptvgroup.archimedes.api.protobuf.network.v1;
+
+option java_package = "com.ptvgroup.archimedes.api.protobuf.network.v1";
+option csharp_namespace = "PTVGroup.Flows.Protos.API";
+
+message Network {
+	string map_version = 1; 
+	string coordinate_reference_system = 2; // mandatory WGS-84
+	repeated Street street = 3;
+}
+
+message Street {
+  int32 id = 1; // Id of the street
+  int32 from_node_id = 2; // Id of the tail Visum Node 
+  bytes openlr = 3; // binary format for openlr
+  int32 functional_road_class = 4; // Functional road class defined by TomTom. Possible values are in the range [0..7] as defined in OpenLR's whitepaper https://download.tomtom.com/open/banners/openlr-whitepaper_v1.5.pdf
+  int32 form_of_way = 5; // Form of way defined by TomTom. Possible values are in the range [0..7] as defined in OpenLR's whitepaper https://download.tomtom.com/open/banners/openlr-whitepaper_v1.5.pdf
+  double free_flow_speed_kmph = 6; // The street free flow speed [Km/h]
+  bytes shape = 7; // The street geometry in WKBLineString format https://www.ibm.com/docs/en/db2-warehouse?topic=formats-well-known-binary-wkb-format
+  string name = 8; // The street name
+}

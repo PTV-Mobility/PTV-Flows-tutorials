@@ -1,0 +1,178 @@
+{
+  "config": "{\"version\":\"5.54\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU02\",\"version\":\"5.53\",\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"slowDataSourceSettings\":{\"isCrossHighlightingDisabled\":false,\"isSlicerSelectionsButtonEnabled\":false,\"isFilterSelectionsButtonEnabled\":false,\"isFieldWellButtonEnabled\":false,\"isApplyAllButtonEnabled\":false},\"linguisticSchemaSyncVersion\":2,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true,\"useEnhancedTooltips\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}]}}",
+  "filters": "[]",
+  "layoutOptimization": 0,
+  "pods": [
+    {
+      "boundSection": "b7dada8d44aa393ebc4c",
+      "config": "{}",
+      "name": "840dc84d268a20ea808b",
+      "parameters": "[{\"name\":\"cd3267787d4aa9c5dbb1\",\"boundFilter\":\"c1b7c4c3d64977395000\",\"fieldExpr\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"AllKpiStats\"}},\"Property\":\"rank\"}},\"isLegacySingleSelection\":true}]",
+      "type": 1
+    }
+  ],
+  "publicCustomVisuals": [
+    "iconMapV34089C0EB522B416294AA926F71B4FDBB"
+  ],
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY24SU02",
+            "path": "BaseThemes/CY24SU02.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{\"objects\":{\"outspacePane\":[{\"properties\":{\"width\":{\"expr\":{\"Literal\":{\"Value\":\"414L\"}}}}}]}}",
+      "displayName": "Forecast analysis",
+      "displayOption": 1,
+      "filters": "[{\"name\":\"daf77fc47149901b0780\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"getallkpis\"}},\"Property\":\"Column1.name\"}},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{\"general\":[{\"properties\":{}}]}}]",
+      "height": 720.00,
+      "name": "80c0ee9d77a9820621d5",
+      "ordinal": 1,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"30502e5b6779c961c798\",\"layouts\":[{\"id\":0,\"position\":{\"x\":389.11070780399274,\"y\":56.91470054446461,\"z\":1000,\"width\":875.7894736842105,\"height\":314.7731397459165,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Sum(last24hours.overallResult.value)\"}],\"Series\":[{\"queryRef\":\"last24hours.Kpi_Name\"}],\"Category\":[{\"queryRef\":\"last24hours.ForecastTime\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"l\",\"Entity\":\"last24hours\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"l\"}},\"Property\":\"Kpi_Name\"},\"Name\":\"last24hours.Kpi_Name\",\"NativeReferenceName\":\"Kpi_Name\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"l\"}},\"Property\":\"ForecastTime\"},\"Name\":\"last24hours.ForecastTime\",\"NativeReferenceName\":\"ForecastTime\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"l\"}},\"Property\":\"overallResult.value\"}},\"Function\":1},\"Name\":\"Sum(last24hours.overallResult.value)\",\"NativeReferenceName\":\"Average of overallResult.value\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"l\"}},\"Property\":\"ForecastTime\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 314.77,
+          "width": 875.79,
+          "x": 389.11,
+          "y": 56.91,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"ff7f100840e95d435a40\",\"layouts\":[{\"id\":0,\"position\":{\"x\":16.534954407294833,\"y\":50.577507598784194,\"z\":0,\"width\":360.8510638297872,\"height\":309.30091185410333,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"getallkpis.Column1.name\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"g\",\"Entity\":\"getallkpis\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"Column1.name\"},\"Name\":\"getallkpis.Column1.name\",\"NativeReferenceName\":\"KPI name\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"Column1.name\"}}}]},\"columnProperties\":{\"getallkpis.Column1.name\":{\"displayName\":\"KPI name\"}},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[{\"name\":\"7c6f0e2fea130bd7a059\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"getallkpis\"}},\"Property\":\"Column1.name\"}},\"type\":\"Categorical\",\"howCreated\":0,\"objects\":{\"general\":[{\"properties\":{\"isInvertedSelectionMode\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]},\"isHiddenInViewMode\":false}]",
+          "height": 309.30,
+          "width": 360.85,
+          "x": 16.53,
+          "y": 50.58,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{\"objects\":{\"outspacePane\":[{\"properties\":{\"width\":{\"expr\":{\"Literal\":{\"Value\":\"274L\"}}}}}]}}",
+      "displayName": "Stats",
+      "displayOption": 1,
+      "filters": "[{\"name\":\"Filteref672273b1896d58e423\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"getallkpis\"}},\"Property\":\"Column1.kpiId\"}},\"type\":\"Categorical\",\"howCreated\":1},{\"name\":\"Filter7327f320951253e90549\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"AllKpiStats\"}},\"Property\":\"dayOfTheWeek\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"a\",\"Entity\":\"AllKpiStats\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"dayOfTheWeek\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'FRIDAY'\"}}],[{\"Literal\":{\"Value\":\"'MONDAY'\"}}],[{\"Literal\":{\"Value\":\"'SATURDAY'\"}}],[{\"Literal\":{\"Value\":\"'SUNDAY'\"}}],[{\"Literal\":{\"Value\":\"'THURSDAY'\"}}],[{\"Literal\":{\"Value\":\"'WEDNESDAY'\"}}],[{\"Literal\":{\"Value\":\"'TUESDAY'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{}},{\"name\":\"Filterdb9ce1e75461b87dcd40\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"last24hours\"}},\"Property\":\"timeStampTZ\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"l\",\"Entity\":\"last24hours\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Between\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"l\"}},\"Property\":\"timeStampTZ\"}},\"LowerBound\":{\"DateAdd\":{\"Expression\":{\"Now\":{}},\"Amount\":-24,\"TimeUnit\":7}},\"UpperBound\":{\"Now\":{}}}}}]},\"type\":\"RelativeTime\",\"howCreated\":1}]",
+      "height": 720.00,
+      "name": "ReportSection",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"105c289fd6a8402130c2\",\"layouts\":[{\"id\":0,\"position\":{\"x\":781.6915422885571,\"y\":0,\"z\":1000,\"width\":100.29850746268656,\"height\":39.80099502487562,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"actionButton\",\"drillFilterOtherVisuals\":true,\"objects\":{\"icon\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'back'\"}}}},\"selector\":{\"id\":\"default\"}}]},\"vcObjects\":{\"visualLink\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"type\":{\"expr\":{\"Literal\":{\"Value\":\"'Back'\"}}}}}]}},\"howCreated\":\"InsertVisualButton\"}",
+          "filters": "[]",
+          "height": 39.80,
+          "width": 100.30,
+          "x": 781.69,
+          "y": 0.00,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"188dc60ab37a8d047166\",\"layouts\":[{\"id\":0,\"position\":{\"x\":781,\"y\":515,\"width\":479,\"height\":205,\"z\":5000,\"tabOrder\":5000}}],\"singleVisual\":{\"visualType\":\"gauge\",\"projections\":{\"Y\":[{\"queryRef\":\"Sum(last24hours.overallResult.value)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"l\",\"Entity\":\"last24hours\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"l\"}},\"Property\":\"overallResult.value\"}},\"Function\":1},\"Name\":\"Sum(last24hours.overallResult.value)\",\"NativeReferenceName\":\"Average of KPI value last 24 hours\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"l\"}},\"Property\":\"overallResult.value\"}},\"Function\":1}}}]},\"columnProperties\":{\"Sum(last24hours.overallResult.value)\":{\"displayName\":\"Average of KPI value last 24 hours\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Average of KPI value (last hours)'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 205.00,
+          "width": 479.00,
+          "x": 781.00,
+          "y": 515.00,
+          "z": 5000.00
+        },
+        {
+          "config": "{\"name\":\"486babe2959a200a41b1\",\"layouts\":[{\"id\":0,\"position\":{\"x\":781.033434650456,\"y\":39.87841945288754,\"z\":3000,\"width\":478.5410334346505,\"height\":440.60790273556233,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"iconMapV34089C0EB522B416294AA926F71B4FDBB\",\"projections\":{\"category\":[{\"queryRef\":\"getallkpis.merged\",\"active\":true}],\"Time\":[{\"queryRef\":\"getallkpis.Fill Color\"}],\"Size\":[{\"queryRef\":\"CountNonNull(getallkpis.Value)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"g\",\"Entity\":\"getallkpis\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"Column1.kpiId\"},\"Name\":\"getallkpis.merged\",\"NativeReferenceName\":\"Column1.kpiId\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"Fill Color\"},\"Name\":\"getallkpis.Fill Color\",\"NativeReferenceName\":\"Fill Color\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"Value\"}},\"Function\":5},\"Name\":\"CountNonNull(getallkpis.Value)\",\"NativeReferenceName\":\"Value\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"Value\"}},\"Function\":5}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"mapLayers\":[{\"properties\":{}},{\"properties\":{\"backgroundMapLayer\":{\"expr\":{\"Literal\":{\"Value\":\"''\"}}}},\"selector\":{\"data\":[{\"dataViewWildcard\":{\"matchingOption\":1}}]}}],\"overlays\":[{\"properties\":{\"daylightTerminator\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"customOverlay\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"points\":[{\"properties\":{\"icon\":{\"expr\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"getallkpis\"}},\"Property\":\"geometry\"}},\"Function\":3}}},\"showTooltip\":{\"expr\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"getallkpis\"}},\"Property\":\"Column1.name\"}},\"Function\":3}}}},\"selector\":{\"data\":[{\"dataViewWildcard\":{\"matchingOption\":1}}]}},{\"properties\":{\"circleSizeType\":{\"expr\":{\"Literal\":{\"Value\":\"'Variable'\"}}},\"maxSize\":{\"expr\":{\"Literal\":{\"Value\":\"60L\"}}},\"minSize\":{\"expr\":{\"Literal\":{\"Value\":\"20L\"}}}}}],\"controls\":[{\"properties\":{\"scale\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"lasso\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"0L\"}}}}},{\"properties\":{\"text\":{\"expr\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"getallkpis\"}},\"Property\":\"Column1.name\"}},\"Function\":3}}}},\"selector\":{\"data\":[{\"dataViewWildcard\":{\"matchingOption\":1}}]}}],\"zoom\":[{\"properties\":{\"zoomOnHighlight\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"zoomOnSelect\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"zoomOnSingleLevel\":{\"expr\":{\"Literal\":{\"Value\":\"12L\"}}}}}],\"formatting\":[{\"properties\":{\"borderTransparency\":{\"expr\":{\"Literal\":{\"Value\":\"6L\"}}},\"borderWidth\":{\"expr\":{\"Literal\":{\"Value\":\"8D\"}}},\"borderColour\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":2,\"Percent\":0}}}}}}}],\"highlighting\":[{\"properties\":{\"unhighlightTransparency\":{\"expr\":{\"Literal\":{\"Value\":\"95L\"}}},\"highlightTransparency\":{\"expr\":{\"Literal\":{\"Value\":\"30L\"}}}}}],\"geoJSON\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"noOfLevels\":{\"expr\":{\"Literal\":{\"Value\":\"1L\"}}}}}]},\"vcObjects\":{\"visualTooltip\":[{\"properties\":{\"type\":{\"expr\":{\"Literal\":{\"Value\":\"'Default'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 440.61,
+          "width": 478.54,
+          "x": 781.03,
+          "y": 39.88,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"7681dfdd5ebbce7a5a4d\",\"layouts\":[{\"id\":0,\"position\":{\"x\":10,\"y\":515,\"width\":771,\"height\":205,\"z\":4000,\"tabOrder\":4000}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Y\":[{\"queryRef\":\"CountNonNull(last24hours.overallResult.value)\"},{\"queryRef\":\"Sum(last24hours.overallResult.averageValue)\"},{\"queryRef\":\"Sum(last24hours.overallResult.unusualValue)\"}],\"Category\":[{\"queryRef\":\"last24hours.timeStamp\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"l\",\"Entity\":\"last24hours\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"l\"}},\"Property\":\"overallResult.value\"}},\"Function\":1},\"Name\":\"CountNonNull(last24hours.overallResult.value)\",\"NativeReferenceName\":\"Current value\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"l\"}},\"Property\":\"overallResult.unusualValue\"}},\"Function\":1},\"Name\":\"Sum(last24hours.overallResult.unusualValue)\",\"NativeReferenceName\":\"unusual threshold\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"l\"}},\"Property\":\"overallResult.averageValue\"}},\"Function\":1},\"Name\":\"Sum(last24hours.overallResult.averageValue)\",\"NativeReferenceName\":\"typical average\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"l\"}},\"Property\":\"timeStampTZ\"},\"Name\":\"last24hours.timeStamp\",\"NativeReferenceName\":\"timeStamp\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"l\"}},\"Property\":\"timeStampTZ\"}}}]},\"columnProperties\":{\"CountNonNull(last24hours.overallResult.value)\":{\"displayName\":\"Current value\"},\"Sum(last24hours.overallResult.averageValue)\":{\"displayName\":\"typical average\"},\"Sum(last24hours.overallResult.unusualValue)\":{\"displayName\":\"unusual threshold\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"referenceLine\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"displayName\":{\"expr\":{\"Literal\":{\"Value\":\"'Min line 1'\"}}},\"value\":{\"expr\":{\"Aggregation\":{\"Expression\":{\"SelectRef\":{\"ExpressionName\":\"CountNonNull(last24hours.overallResult.value)\"}},\"Function\":3}}},\"dataLabelShow\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}},\"selector\":{\"metadata\":\"CountNonNull(last24hours.overallResult.value)\",\"id\":\"1\"}},{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"displayName\":{\"expr\":{\"Literal\":{\"Value\":\"'Max line 1'\"}}},\"value\":{\"expr\":{\"Aggregation\":{\"Expression\":{\"SelectRef\":{\"ExpressionName\":\"CountNonNull(last24hours.overallResult.value)\"}},\"Function\":4}}},\"dataLabelShow\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}},\"selector\":{\"metadata\":\"CountNonNull(last24hours.overallResult.value)\",\"id\":\"2\"}}],\"valueAxis\":[{\"properties\":{\"showAxisTitle\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"legend\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'last hours KPI values'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 205.00,
+          "width": 771.00,
+          "x": 10.00,
+          "y": 515.00,
+          "z": 4000.00
+        },
+        {
+          "config": "{\"name\":\"78b876cd957649808838\",\"layouts\":[{\"id\":0,\"position\":{\"x\":10,\"y\":261.5,\"width\":771,\"height\":243,\"z\":2000,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Series\":[{\"queryRef\":\"AllKpiStats.dayOfTheWeek\"}],\"Category\":[{\"queryRef\":\"AllKpiStats.HourTZ\",\"active\":true}],\"Y\":[{\"queryRef\":\"Sum(AllKpiStats.meanTT)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"a\",\"Entity\":\"AllKpiStats\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"dayOfTheWeek\"},\"Name\":\"AllKpiStats.dayOfTheWeek\",\"NativeReferenceName\":\"dayOfTheWeek\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"meanTT\"}},\"Function\":1},\"Name\":\"Sum(AllKpiStats.meanTT)\",\"NativeReferenceName\":\"Average of meanTT\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"HourTZ\"},\"Name\":\"AllKpiStats.HourTZ\",\"NativeReferenceName\":\"Sum of HourTZ\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"meanTT\"}},\"Function\":1}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"valueAxis\":[{\"properties\":{\"titleText\":{\"expr\":{\"Literal\":{\"Value\":\"'Mean TT'\"}}}}}],\"lineStyles\":[{\"properties\":{\"showMarker\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"categoryAxis\":[{\"properties\":{\"gridlineAutoScale\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Average profile by hour and day of the week'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 243.00,
+          "width": 771.00,
+          "x": 10.00,
+          "y": 261.50,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"d376558106caa63d740e\",\"layouts\":[{\"id\":0,\"position\":{\"x\":782.0060790273557,\"y\":0,\"z\":6000,\"width\":477.5683890577508,\"height\":39.87841945288754,\"tabOrder\":6000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"getallkpis.TotalKPIS\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"g\",\"Entity\":\"getallkpis\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"TotalKPIS\"},\"Name\":\"getallkpis.TotalKPIS\",\"NativeReferenceName\":\"TotalKPIS\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"TotalKPIS\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"28D\"}}}}}],\"categoryLabels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"8D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 39.88,
+          "width": 477.57,
+          "x": 782.01,
+          "y": 0.00,
+          "z": 6000.00
+        },
+        {
+          "config": "{\"name\":\"ffabbad0c705ad00b555\",\"layouts\":[{\"id\":0,\"position\":{\"x\":2.388059701492537,\"y\":0,\"z\":0,\"width\":779.3034825870647,\"height\":230.0497512437811,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"getallkpis.Column1.name\"},{\"queryRef\":\"Count(getallkpis.Column1.location.name)\"},{\"queryRef\":\"getallkpis.Column1.kpiId\"},{\"queryRef\":\"getallkpis.TotalKPIS\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"g\",\"Entity\":\"getallkpis\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"Column1.name\"},\"Name\":\"getallkpis.Column1.name\",\"NativeReferenceName\":\"KPI name\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"Column1.location.name\"}},\"Function\":2},\"Name\":\"Count(getallkpis.Column1.location.name)\",\"NativeReferenceName\":\"Count of Column1.location.name\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"Column1.kpiId\"},\"Name\":\"getallkpis.Column1.kpiId\",\"NativeReferenceName\":\"Column1.kpiId\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"TotalKPIS\"},\"Name\":\"getallkpis.TotalKPIS\",\"NativeReferenceName\":\"TotalKPIS\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"Column1.name\"}}}]},\"columnProperties\":{\"getallkpis.Column1.name\":{\"displayName\":\"KPI name\"}},\"drillFilterOtherVisuals\":true,\"objects\":{},\"vcObjects\":{\"stylePreset\":[{\"properties\":{\"name\":{\"expr\":{\"Literal\":{\"Value\":\"'AlternatingRowsNew'\"}}}}}],\"visualTooltip\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"visualHeader\":[{\"properties\":{\"showTooltipButton\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[{\"name\":\"8e1e525150b9b0d0b688\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"getallkpis\"}},\"Property\":\"Column1.name\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"g\",\"Entity\":\"getallkpis\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Not\":{\"Expression\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"Column1.name\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Unusual__Trelleborgsvagen_Southbound'\"}}],[{\"Literal\":{\"Value\":\"'Unusual_on_Trelleborgsvägen N'\"}}],[{\"Literal\":{\"Value\":\"'Unusual_Yttre Ringvägen_Southbound'\"}}],[{\"Literal\":{\"Value\":\"'Unusual_Yttre Ringvägen_Northbound'\"}}]]}}}}}]},\"type\":\"Categorical\",\"howCreated\":0,\"objects\":{\"general\":[{\"properties\":{\"isInvertedSelectionMode\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]},\"isHiddenInViewMode\":false}]",
+          "height": 230.05,
+          "width": 779.30,
+          "x": 2.39,
+          "y": 0.00,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{\"objects\":{\"outspacePane\":[{\"properties\":{\"width\":{\"expr\":{\"Literal\":{\"Value\":\"382L\"}}}}}]}}",
+      "displayName": "TTI,BTI,PTI",
+      "displayOption": 1,
+      "filters": "[{\"name\":\"3d213e3578ac60676910\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"AllKpiStats\"}},\"Property\":\"Kpi_Name\"}},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{\"general\":[{\"properties\":{\"isInvertedSelectionMode\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}},{\"name\":\"c1b7c4c3d64977395000\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"AllKpiStats\"}},\"Property\":\"rank\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"a\",\"Entity\":\"AllKpiStats\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"rank\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'0.95'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{\"general\":[{\"properties\":{\"requireSingleSelect\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]},\"isLockedInViewMode\":false}]",
+      "height": 720.00,
+      "name": "b7dada8d44aa393ebc4c",
+      "ordinal": 2,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"4dfca26a490237529bee\",\"layouts\":[{\"id\":0,\"position\":{\"x\":16.673346693386772,\"y\":615.6312625250501,\"z\":1000,\"width\":711.8236472945893,\"height\":103.88777555110221,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"TTI is the Travel Time Index, the mean travel time divided by the free-flow travel time.\"}],\"listType\":\"bullet\"},{\"textRuns\":[{\"value\":\"BTI is the Buffer Time Index, computed as the 95\"},{\"value\":\"th\",\"textStyle\":{\"lineHeight\":\"0\",\"position\":\"relative\",\"verticalAlign\":\"baseline\",\"scriptType\":\"super\",\"top\":\"-0.25em\"}},{\"value\":\" percentile travel time minus the mean travel time, all divided by the mean travel time. It is a measure of reliability.\"}],\"listType\":\"bullet\"},{\"textRuns\":[{\"value\":\"PTI is the Planning Time Index, the 95\"},{\"value\":\"th\",\"textStyle\":{\"lineHeight\":\"0\",\"position\":\"relative\",\"verticalAlign\":\"baseline\",\"scriptType\":\"super\",\"top\":\"-0.25em\"}},{\"value\":\" percentile travel time divided by the free-flow travel time.\"}],\"listType\":\"bullet\"},{\"textRuns\":[{\"value\":\"\"}]}]}}]}}}",
+          "filters": "[]",
+          "height": 103.89,
+          "width": 711.82,
+          "x": 16.67,
+          "y": 615.63,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"5d336e0570d4ebd6da71\",\"layouts\":[{\"id\":0,\"position\":{\"x\":787.8659611992945,\"y\":48.53615520282187,\"z\":2000,\"width\":244.93827160493825,\"height\":618.5537918871252,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"getallkpis.Column1.name\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"g\",\"Entity\":\"getallkpis\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"Column1.name\"},\"Name\":\"getallkpis.Column1.name\",\"NativeReferenceName\":\"Column1.name\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 618.55,
+          "width": 244.94,
+          "x": 787.87,
+          "y": 48.54,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"d77c551209e375849bd3\",\"layouts\":[{\"id\":0,\"position\":{\"x\":17.955911823647295,\"y\":48.7374749498998,\"z\":0,\"width\":674.629258517034,\"height\":547.6553106212425,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"AllKpiStats.dayOfTheWeek\"},{\"queryRef\":\"Sum(AllKpiStats.HourTZ)\"},{\"queryRef\":\"Sum(AllKpiStats.meanTT)\"},{\"queryRef\":\"Sum(AllKpiStats.DefaultValue)\"},{\"queryRef\":\"Sum(AllKpiStats.quantile)\"},{\"queryRef\":\"Sum(AllKpiStats.TTI)\"},{\"queryRef\":\"Sum(AllKpiStats.BTI)\"},{\"queryRef\":\"Sum(AllKpiStats.PTI)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"a\",\"Entity\":\"AllKpiStats\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"dayOfTheWeek\"},\"Name\":\"AllKpiStats.dayOfTheWeek\",\"NativeReferenceName\":\"dayOfTheWeek\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"meanTT\"},\"Name\":\"Sum(AllKpiStats.meanTT)\",\"NativeReferenceName\":\"meanTT\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"FreeFlow\"},\"Name\":\"Sum(AllKpiStats.DefaultValue)\",\"NativeReferenceName\":\"FreeFlow\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"TTI\"},\"Name\":\"Sum(AllKpiStats.TTI)\",\"NativeReferenceName\":\"TTI\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"HourTZ\"},\"Name\":\"Sum(AllKpiStats.HourTZ)\",\"NativeReferenceName\":\"HourTZ\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"quantile\"},\"Name\":\"Sum(AllKpiStats.quantile)\",\"NativeReferenceName\":\"95th perc\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"BTI\"},\"Name\":\"Sum(AllKpiStats.BTI)\",\"NativeReferenceName\":\"BTI\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"PTI\"},\"Name\":\"Sum(AllKpiStats.PTI)\",\"NativeReferenceName\":\"PTI\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"dayOfTheWeek\"}}},{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"HourTZ\"}}}]},\"columnProperties\":{\"Sum(AllKpiStats.quantile)\":{\"displayName\":\"95th perc\"}},\"drillFilterOtherVisuals\":true,\"objects\":{\"total\":[{\"properties\":{\"totals\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"values\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"14D\"}}}}}]},\"vcObjects\":{\"stylePreset\":[{\"properties\":{\"name\":{\"expr\":{\"Literal\":{\"Value\":\"'AlternatingRowsNew'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 547.66,
+          "width": 674.63,
+          "x": 17.96,
+          "y": 48.74,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}

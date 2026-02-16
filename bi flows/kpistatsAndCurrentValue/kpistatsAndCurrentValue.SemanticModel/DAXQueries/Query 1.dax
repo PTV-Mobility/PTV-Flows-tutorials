@@ -1,0 +1,4 @@
+TotalKPIS =
+Var GetKpis = SUM('getallkpis'[Value])
+Return
+If(ISBLANK(GetKpis),"No sales for this year.", GetKpis)

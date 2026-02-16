@@ -1,0 +1,1632 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "PTV Flows historical data API",
+    "description": "The PTV Flows Historical Data API provides the historical data of your product instance",
+    "termsOfService": "https://ptvgroup.com/terms/",
+    "license": {
+      "name": "Apache 2.0",
+      "url": "https://ptvgroup.com"
+    },
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/time-slice/get": {
+      "get": {
+        "tags": [
+          "Time Slice Data"
+        ],
+        "description": "Endpoint for downloading speed data in binary or text format for the entire network within a given time interval.",
+        "operationId": "getMeasuredData",
+        "parameters": [
+          {
+            "name": "fromTime",
+            "in": "query",
+            "required": true,
+            "example": "2024-10-21T00:00:00Z",
+            "description": "Start interval of time slice ( ISO 8601 format)",
+            "schema": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          {
+            "name": "toTime",
+            "in": "query",
+            "required": false,
+            "description": "End interval of time slice (ISO 8601 format). The time interval cannot be greater than the maximum time slice admitted (1 hour). If toTime is not set, only data in the closest interval to the specified fromTime is returned.",
+            "example": "2024-10-21T00:00:00Z",
+            "schema": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          {
+            "name": "fromRow",
+            "in": "query",
+            "required": false,
+            "description": "This parameter specifies the index (starting from 1) of the first data element to be included in the response. The allowable range for this parameter is dynamic and depends on the specified time slice endpoint. If the parameter is not provided, only metadata containing the maximum range for the request is returned.",
+            "example": 1,
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          {
+            "name": "toRow",
+            "in": "query",
+            "description": "Indicates the index ( not included) of the last element of data to be returned in the result. If fromRow is provided it must be present and greater than fromRow",
+            "required": false,
+            "example": 1000,
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Data is successfully returned. By specifying the Accept header, Data can be downloaded in plain text format (JSON) or binary (parquet). The default format is binary.",
+            "content": {
+              "application/vnd.apache.parquet": {
+                "schema": {
+                  "description": "Arrays of schema in parquet format.",
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/StreetResult"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MeasuredResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "This is a generic error due to a badly formed request. It can happen when some parameters are missing or the value is wrong. The body of the response contains the specific description of the bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Can be caused by connection or overload problems.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/time-series/get": {
+      "get": {
+        "tags": [
+          "Time Series Data"
+        ],
+        "description": "Get time series speed data for a single network element",
+        "operationId": "getTimeSeriesData",
+        "parameters": [
+          {
+            "name": "fromTime",
+            "description": "Start interval of the time series (ISO 8601 format). The default interval is 3 days in the past.",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          {
+            "name": "toTime",
+            "description": "End interval of the time series (ISO 8601 format). The default interval is the last 24 hours. The maximum interval is 1 year in the past.",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          {
+            "name": "streetCode",
+            "description": "Internal street code identifier. (String format). One of three street identifiers is required.",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "streetIdno",
+            "description": "Model base street identifier. If provided, streetFromNode must also be inserted.",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          {
+            "name": "streetFromNode",
+            "description": "Model base street from node identifier. If provided, streetIdno must also be inserted.",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          {
+            "name": "openLrCode",
+            "description": "OpenLr Code street identifier. One of three street identifiers is required.",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "timeAggregation",
+            "description": "Temporal aggregation of time series.",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "enum": [
+                "MINUTES_5",
+                "MINUTES_15",
+                "MINUTES_30",
+                "HOURS_1",
+                "DAYS_1"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "name": "valueType",
+            "description": "Type of value to be returned in the time series.",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "enum": [
+                "speed",
+                "probeCount",
+                "travelTime"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Time Series data successfully returned. By specifying the Accept header, data can be downloaded in plain text (JSON), binary (parquet) or compressed (gzip) CSV format. The default format is JSON.",
+            "content": {
+              "application/vnd.apache.parquet": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ResultValue"
+                  }
+                }
+              },
+              "application/octet-stream": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ResultValue"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TimeSeriesData"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "This is a generic error due to a badly formed request. It can happen when some parameters are missing or the value is wrong. The body of the response contains the specific description of the bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              },
+              "application/octet-stream": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Can be caused by connection or overload problems.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              },
+              "application/octet-stream": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/stats/streets/get": {
+      "get": {
+        "tags": [
+          "Statistical Network Data"
+        ],
+        "description": "Get network data info JSON or binary (parquet) format. It provides statistical data for all elements in the network. \nResults data consists in:\n  \n  * **Statistical distribution** of speeds and travel time for days of the week and hour of day. Expressed as percentile distribution array with 5 percentiles granularity. The first and the last element of array, represents the minimum and maximum value of the set.\n\nIt accepts an optional query parameter, **timeWindowOffset**, which allows the user to specify the time period for which the statistics should be calculated\n\n> **_NOTE:_**  The **statistical distribution** is returned only if the data availability for the selected filter parameter is sufficient. Otherwise, only aggregated mean values are returned\n\n> **_NOTE:_**  This API provides data only for streets at last map version available in the system.\n",
+        "operationId": "getStatsStreetsData",
+        "parameters": [
+          {
+            "name": "timeWindowOffset",
+            "description": "Query parameter which allows the user to specify the time period for which the statistics should be calculated. <br> **timeWindowOffset** is an integer value where 0 represents the current month (this is the default if the parameter is omitted), 1 represents the previous month, and 2 represents the month before the previous",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          {
+            "name": "selectedTile",
+            "description": "Is a string representing a Geohash tile. If provided, the returned statistics will be filtered to include only elements that falls within the specified Geohash tile. Default accuracy length is 5. To get the list of available tiles for the current network please refer to stats/network endpoint. If omitted, statistics for the entire network are returned, regardless of location.  This allows users to focus on specific areas within a street.",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "streetCodes",
+            "description": "Is a Integer value of internal street element identifiers (street codes). If provided, the returned statistics will be further filtered to include only data associated with the specified street elements.  If omitted, statistics for all street elements within the specified street and geohash (if provided) are returned. This allows users to focus on specific segments or parts of a street.",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "format": "int64",
+                "type": "integer"
+              }
+            }
+          },
+          {
+            "name": "selectedHours",
+            "description": "It is a comma-separated string of hours (0-23) in utc time zone. If provided, the returned statistics will be further filtered to include only data collected during the specified hours. If omitted, data at the hour of the request will be included.",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "format": "int32",
+                "type": "integer"
+              }
+            }
+          },
+          {
+            "name": "functionalRoadClasses",
+            "description": "Is a Integer value of street functional classification. If available and provided, the returned statistics will be further filtered to include only data for the street elements within specified functional road class. If omitted, statistics for all street elements within the specified street and geohash (if provided) are returned.",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "format": "int32",
+                "type": "integer"
+              }
+            }
+          },
+          {
+            "name": "selectedDays",
+            "description": "Is a comma-separated string of days of the week. If provided, the returned statistics will be further filtered to include only data collected on the specified days. If omitted, data from the day of the week at the request time is included.",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "enum": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday"
+                ],
+                "type": "string",
+                "x-enum-varnames": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday"
+                ]
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/vnd.apache.parquet": {
+                "schema": {
+                  "format": "binary",
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/StatsResult"
+                  }
+                },
+                "examples": {
+                  "completed streets result": {
+                    "description": "Payload of results when statistical data is available for selected streets",
+                    "value": [
+                      {
+                        "streetCode": 123345,
+                        "historicalStats": {
+                          "data": [
+                            {
+                              "totalRows": 100,
+                              "minDate": "2025-02-01T10:00:00Z",
+                              "maxDate": "2025-02-30T10:59:00Z",
+                              "hourOfDay": 10,
+                              "dayOfWeekName": "Friday",
+                              "meanSpeed": 30,
+                              "meanTravelTime": 10,
+                              "percentilesSpeed": [
+                                20,
+                                25,
+                                25,
+                                25,
+                                30,
+                                30,
+                                30,
+                                30,
+                                30,
+                                30,
+                                40,
+                                40,
+                                42,
+                                45,
+                                45,
+                                45,
+                                45,
+                                45,
+                                45,
+                                45,
+                                50
+                              ],
+                              "percentilesTravelTime": [
+                                0
+                              ]
+                            }
+                          ]
+                        },
+                        "streetData": {
+                          "idno": 123,
+                          "fromNode": 345,
+                          "toNode": 545,
+                          "openLr": "CwUB2CRaXiOYBv4y/4ojZBoT",
+                          "functionalRoadClass": 6,
+                          "name": "Kempen stasse",
+                          "tile": "sr2v8",
+                          "length": 0.1
+                        }
+                      }
+                    ]
+                  },
+                  "default streets result": {
+                    "description": "Payload of results when statistical data is not completely available. The historical stats data contains aggregated value.",
+                    "value": [
+                      {
+                        "streetCode": 123345,
+                        "historicalStats": {
+                          "data": [
+                            {
+                              "totalRows": 100,
+                              "minDate": "2025-02-01T10:00:00Z",
+                              "maxDate": "2025-02-30T10:59:00Z",
+                              "meanSpeed": 30,
+                              "meanTravelTime": 10
+                            }
+                          ]
+                        },
+                        "streetData": {
+                          "idno": 123,
+                          "fromNode": 345,
+                          "toNode": 545,
+                          "openLr": "CwUB2CRaXiOYBv4y/4ojZBoT",
+                          "functionalRoadClass": 6,
+                          "name": "Kempen stasse",
+                          "tile": "sr2v8",
+                          "length": 0.1
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "This is a generic error due to a badly formed request. It can happen when some parameters are missing or the value is wrong. The body of the response contains the specific description of the bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Requested data exceeded the maximum size admitted. Please consider to filter the results. The body of the response contains the specific description of the bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "value": {
+                    "description": "A product-specific restriction is exceeded.",
+                    "errorCode": "STATS DATA_RESTRICTION_EXCEEDED",
+                    "traceId": "c32514e487304e541517fdace29638c7",
+                    "errorId": "3d383911-e132-4173-afa7-15d3dd5340f4",
+                    "causes": [
+                      {
+                        "description": "Requested data exceeded the maximum size admitted. Please consider to filter the results",
+                        "errorCode": "404"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Can be caused by connections or overload problems.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/stats/freeflow/get": {
+      "get": {
+        "tags": [
+          "Statistical Network Data"
+        ],
+        "description": "Get free flow speed and travel time of network in JSON or binary (parquet) format. It provides free flow data for all elements in the network. \nResult info consists in:\n\n  * **free flow speed** computed as the 85th percentile of the hour with max average speed, within the last 2 months\n  * **free flow travel time** computed as the 15th percentile of the hour with max average speed, within the last 2 months\n  * **static free flow** static reference free flow speed from the map data ( only if available)\n\n\n**_NOTE:_**  This API provides data only for streets at last map version available in the system.\n",
+        "operationId": "getStatsFreeFlowData",
+        "parameters": [
+          {
+            "name": "selectedTile",
+            "description": "Is a string representing a Geohash tile. If provided, the returned statistics will be filtered to include only elements that falls within the specified Geohash tile. Default accuracy length is 5. To get the list of available tiles for the current network please refer to stats/network endpoint. If omitted, statistics for the entire network are returned, regardless of location.  This allows users to focus on specific areas within a street.",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "streetCodes",
+            "description": "Is a Integer value of internal street element identifiers (street codes). If provided, the returned statistics will be further filtered to include only data associated with the specified street elements.  If omitted, statistics for all street elements within the specified street and geohash (if provided) are returned. This allows users to focus on specific segments or parts of a street.",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "format": "int64",
+                "type": "integer"
+              }
+            }
+          },
+          {
+            "name": "functionalRoadClasses",
+            "description": "Is a Integer value of street functional classification. If available and provided, the returned statistics will be further filtered to include only data for the street elements within specified functional road class. If omitted, statistics for all street elements within the specified street and geohash (if provided) are returned.",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "format": "int32",
+                "type": "integer"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/vnd.apache.parquet": {
+                "schema": {
+                  "format": "binary",
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/StatsResult"
+                  }
+                },
+                "examples": {
+                  "completed streets result": {
+                    "description": "Payload of results when statistical data is available for selected streets",
+                    "value": [
+                      {
+                        "streetCode": 123345,
+                        "historicalStats": {
+                          "freeFlowData": {
+                            "freeFlowSpeed": 33.3,
+                            "freeFlowTravelTime": 5,
+                            "staticFreeFlowSpeed": 40
+                          },
+                          "data": [
+                            {
+                              "totalRows": 100,
+                              "minDate": "2025-02-01T10:00:00Z",
+                              "maxDate": "2025-02-30T10:59:00Z",
+                              "meanSpeed": 30,
+                              "meanTravelTime": 10
+                            }
+                          ]
+                        },
+                        "streetData": {
+                          "idno": 123,
+                          "fromNode": 345,
+                          "toNode": 545,
+                          "openLr": "CwUB2CRaXiOYBv4y/4ojZBoT",
+                          "functionalRoadClass": 6,
+                          "name": "Kempen stasse",
+                          "tile": "sr2v8",
+                          "length": 0.1
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "This is a generic error due to a badly formed request. It can happen when some parameters are missing or the value is wrong. The body of the response contains the specific description of the bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Requested data exceeded the maximum size admitted. Please consider to filter the results. The body of the response contains the specific description of the bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "value": {
+                    "description": "A product-specific restriction is exceeded.",
+                    "errorCode": "STATS DATA_RESTRICTION_EXCEEDED",
+                    "traceId": "c32514e487304e541517fdace29638c7",
+                    "errorId": "3d383911-e132-4173-afa7-15d3dd5340f4",
+                    "causes": [
+                      {
+                        "description": "Requested data exceeded the maximum size admitted. Please consider to filter the results",
+                        "errorCode": "404"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Can be caused by connections or overload problems.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/stats/network/get": {
+      "get": {
+        "tags": [
+          "Statistical Network Data"
+        ],
+        "description": "Endpoint that retrieves aggregated statistical information about the entire network. It accepts no parameters and returns a JSON object containing the following information:\n  * Data availability. An object describing the time interval of historical data availability\n  * Total rows: The total number of data rows ingested into the system for the entire network.\n  * Map version: A list of map versions available for the network. This allows clients to understand which map data the statistics are based on.\n  * Functional road Classes: A list of functional road classes present in the network data. ( Provided only in case of map data availability)\n  * Tiles: A list of geohash tiles for which data is available in the network. This allows clients to understand the geographic coverage of the data and to construct queries\n",
+        "operationId": "getStatsNetworkData",
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/StatsResult"
+                  }
+                },
+                "examples": {
+                  "completed network result": {
+                    "value": [
+                      {
+                        "data": [
+                          {
+                            "totalRows": 123,
+                            "minDate": "2025-02-03T11:54:50.232Z",
+                            "maxDate": "2025-02-03T11:54:50.232Z"
+                          }
+                        ],
+                        "streetData": {
+                          "mapVersion": "string",
+                          "tileSet": [
+                            "asd",
+                            "das"
+                          ],
+                          "frcSet": [
+                            0,
+                            1,
+                            2,
+                            3
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "This is a generic error due to a badly formed request. It can happen when some parameters are missing or the value is wrong. The body of the response contains the specific description of the bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Can be caused by connections or overload problems.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/kpi/overall/get": {
+      "get": {
+        "tags": [
+          "KPI Data"
+        ],
+        "description": "Get KPI overall results data request in JSON or compressed (gzip) CSV format.",
+        "operationId": "getKpiDataOverall",
+        "parameters": [
+          {
+            "name": "kpiId",
+            "description": "Kpi Identifier.<br> List of available KPI's can be obtained from public KPI API [https://api.ptvgroup.tech/kpieng/v1](https://api.ptvgroup.tech/kpieng/v1).",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fromTime",
+            "description": "Start interval of required data (ISO 8601 format). <br> The default interval is the last 24 hours.<br> The maximum interval is of 1 year for overall results and of 1 day for detailed results.",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          {
+            "name": "toTime",
+            "description": "End interval of required data (ISO 8601 format). <br> The default interval is the last 24 hours.<br> The maximum interval is of 1 year for overall results and of 1 day for detailed results.",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          {
+            "name": "timeAggregation",
+            "description": "Temporal aggregation of time series.",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "enum": [
+                "MINUTES_5",
+                "MINUTES_15",
+                "MINUTES_30",
+                "HOURS_1",
+                "DAYS_1"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "KPI result data successfully returned. By specifying the Accept header, data can be downloaded in plain text format (JSON) or compressed CSV format. The default format is JSON.",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "description": "Arrays of schema in compressed (gzip) CSV format.",
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/KpiResultData"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/KpiResult"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No content. Required parameters data is not found."
+          },
+          "400": {
+            "description": "This is a generic error due to a badly formed request. It can happen when some parameters are missing or the value is wrong. The body of the response contains the specific description of the bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Can be caused by connections or overload problems.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/kpi/detailed/get": {
+      "get": {
+        "tags": [
+          "KPI Data"
+        ],
+        "description": "Get KPI detailed (for each segment of the path) results data request in JSON or compressed (gzip) CSV format.",
+        "operationId": "getKpiDataDetailed",
+        "parameters": [
+          {
+            "name": "kpiId",
+            "description": "Kpi Identifier.\n\nList of available KPI's can be obtained from public KPI API [https://api.ptvgroup.tech/kpieng/v1](https://api.ptvgroup.tech/kpieng/v1).\n",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fromTime",
+            "description": "Start interval of required data (ISO 8601 format). \n\nThe default interval is the last 24 hours.\nThe maximum interval is 1 day.\n",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          {
+            "name": "toTime",
+            "description": "End interval of required data (ISO 8601 format). \n\nThe default interval is the last 24 hours.\nThe maximum interval is 1 day.\n",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "format": "date-time",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "KPI result data successfully returned. By specifying the Accept header, data can be downloaded in plain text format (JSON) or compressed (gzip) CSV format. The default format is JSON.",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "description": "Arrays of schema in compressed (gzip) CSV format.",
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/KpiResultData"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/KpiResult"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No content. Required parameters data is not found."
+          },
+          "400": {
+            "description": "This is a generic error due to a badly formed request. It can happen when some parameters are missing or the value is wrong. The body of the response contains the specific description of the bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Can be caused by connections or overload problems.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/elaborated/byHoursAndDays/get": {
+      "get": {
+        "tags": [
+          "Elaborated Data"
+        ],
+        "description": "Get elaborated data request by hours of days and days of the week",
+        "operationId": "getElaboratedDataByHoursAndDay",
+        "parameters": [
+          {
+            "name": "fromTime",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          {
+            "name": "toTime",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          {
+            "name": "streetCodes",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "format": "int64",
+                "type": "integer"
+              }
+            }
+          },
+          {
+            "name": "hoursOfDay",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "format": "int32",
+                "type": "integer"
+              }
+            }
+          },
+          {
+            "name": "daysOfTheWeek",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "enum": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday"
+                ],
+                "type": "string",
+                "x-enum-varnames": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday"
+                ]
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {}
+            }
+          },
+          "400": {
+            "description": "Can be caused by exceeding query parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Can be caused by connections or overload problems",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/elaborated/overall/get": {
+      "get": {
+        "tags": [
+          "Elaborated Data"
+        ],
+        "description": "Get elaborated data request",
+        "operationId": "getElaboratedData",
+        "parameters": [
+          {
+            "name": "fromTime",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          {
+            "name": "toTime",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          {
+            "name": "streetName",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "streetCodes",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "format": "int64",
+                "type": "integer"
+              }
+            }
+          },
+          {
+            "name": "timeAggregation",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "enum": [
+                "MINUTES_5",
+                "MINUTES_15",
+                "MINUTES_30",
+                "HOURS_1",
+                "DAYS_1"
+              ],
+              "type": "string",
+              "x-enum-varnames": [
+                "5min",
+                "15min",
+                "30min",
+                "1h",
+                "1d"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {}
+            }
+          },
+          "400": {
+            "description": "Can be caused by exceeding query parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Can be caused by connections or overload problems",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ResultValue": {
+        "type": "object",
+        "properties": {
+          "probeCount": {
+            "format": "float",
+            "description": "vehicles (probe) / hour",
+            "type": "integer"
+          },
+          "speed": {
+            "format": "float",
+            "description": "Km/h",
+            "type": "number"
+          },
+          "travelTime": {
+            "format": "float",
+            "description": "seconds",
+            "type": "number"
+          },
+          "flow": {
+            "format": "float",
+            "type": "number"
+          },
+          "fdat": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "ldat": {
+            "format": "date-time",
+            "type": "string"
+          }
+        }
+      },
+      "StreetResult": {
+        "type": "object",
+        "properties": {
+          "index": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "streetCode": {
+            "type": "string"
+          },
+          "streetIdno": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "streetFromNode": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "streetToNode": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "openLrCode": {
+            "type": "string"
+          },
+          "mapVersion": {
+            "type": "string"
+          },
+          "values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResultValue"
+            }
+          }
+        }
+      },
+      "CausingError": {
+        "description": "A list of affected parameters and/or properties that caused this error.",
+        "required": [
+          "description",
+          "errorCode"
+        ],
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string"
+          },
+          "details": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object"
+            }
+          },
+          "errorCode": {
+            "type": "string"
+          },
+          "parameter": {
+            "type": "string"
+          }
+        }
+      },
+      "ErrorResponse": {
+        "required": [
+          "description",
+          "errorCode",
+          "traceId"
+        ],
+        "type": "object",
+        "properties": {
+          "causes": {
+            "description": "A list of affected parameters and/or properties that caused this error.",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CausingError"
+            }
+          },
+          "description": {
+            "description": "A human readable message that describes the error",
+            "type": "string"
+          },
+          "details": {
+            "description": "Additional properties specific to this error class.",
+            "type": "object",
+            "additionalProperties": {
+              "description": "Additional properties specific to this error class.",
+              "type": "object"
+            }
+          },
+          "errorCode": {
+            "description": "        A constant string that can be used to identify this error class programmatically. An errorCode can have **details** to provide information in additional properties which are described with the code they apply to.\n        Note that additional errorCodes as well as the **details** of existing errorCodes may be added at any time.\n\n        HTTP status code: 400\n        * GENERAL_UNAUTHENTICATED: Invalid or missing authentication credentials\n        HTTP status code: 500\n        * GENERAL_VALIDATION_ERROR: The validation of the request failed. Details can be found in causes\n        HTTP status code: 503\n        * GENERAL_SERVICE_UNAVAILABLE: The request could not be processed due to an internal error\n        HTTP status code: 404\n        * GENERAL_RESOURCE_NOT_FOUND: A requested resource does not exist\n\n\n\n",
+            "type": "string"
+          },
+          "errorId": {
+            "description": "A unique identifier specific to this error instance. It can be used to trace errors by the support.",
+            "type": "string"
+          },
+          "traceId": {
+            "description": "A unique identifier specific to this error instance. It can be used to trace errors by the support team.",
+            "type": "string"
+          }
+        }
+      },
+      "MeasuredResult": {
+        "type": "object",
+        "properties": {
+          "metadata": {
+            "$ref": "#/components/schemas/MetaResult"
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StreetResult"
+            }
+          }
+        }
+      },
+      "MetaResult": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "mapVersion": {
+            "type": "string"
+          },
+          "createdOn": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "totalElements": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "totalSize": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "maxElementsPerRequest": {
+            "format": "int32",
+            "type": "integer"
+          }
+        }
+      },
+      "NetworkData": {
+        "type": "object",
+        "properties": {
+          "idno": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "fromNode": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "toNode": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "openLr": {
+            "type": "string"
+          },
+          "functionalRoadClass": {
+            "format": "int32",
+            "description": "(extended feature only) PTV model functional road class",
+            "type": "integer"
+          },
+          "name": {
+            "description": "(extended feature only) Street name",
+            "type": "string"
+          },
+          "mapVersion": {
+            "type": "string"
+          },
+          "tile": {
+            "type": "string"
+          },
+          "streetCode": {
+            "type": "string"
+          },
+          "freeFlowSpeed": {
+            "format": "float",
+            "type": "number"
+          },
+          "length": {
+            "format": "float",
+            "description": "(extended feature only) Length in km",
+            "type": "number"
+          },
+          "shape": {
+            "description": "(extended feature only) WKT representation of the street geometry",
+            "type": "string"
+          },
+          "tileSet": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "frcSet": {
+            "type": "array",
+            "items": {
+              "format": "integer",
+              "type": "number"
+            }
+          }
+        }
+      },
+      "TimeSeries": {
+        "type": "object",
+        "properties": {
+          "speed": {
+            "description": "km/h",
+            "type": "array",
+            "items": {
+              "format": "float",
+              "type": "number"
+            }
+          },
+          "travelTime": {
+            "description": "travel time in seconds",
+            "type": "array",
+            "items": {
+              "format": "float",
+              "type": "number"
+            }
+          },
+          "probeCount": {
+            "description": "vehicles (probe) / hour",
+            "type": "array",
+            "items": {
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          "fdat": {
+            "type": "array",
+            "items": {
+              "format": "date-time",
+              "type": "string"
+            }
+          }
+        }
+      },
+      "TimeSeriesData": {
+        "type": "object",
+        "properties": {
+          "metaData": {
+            "$ref": "#/components/schemas/TimeSeriesMeta"
+          },
+          "timeSeries": {
+            "$ref": "#/components/schemas/TimeSeries"
+          }
+        }
+      },
+      "TimeSeriesMeta": {
+        "type": "object",
+        "properties": {
+          "networkData": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NetworkData"
+            }
+          },
+          "requestInfo": {
+            "$ref": "#/components/schemas/TimeSeriesStats"
+          }
+        }
+      },
+      "TimeSeriesStats": {
+        "type": "object",
+        "properties": {
+          "streetCode": {
+            "type": "string"
+          },
+          "retrievedAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "interval": {
+            "type": "string"
+          },
+          "valueType": {
+            "type": "string"
+          }
+        }
+      },
+      "HistoricalStat": {
+        "type": "object",
+        "properties": {
+          "freeFlowData": {
+            "$ref": "#/components/schemas/FreeFlowData"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/HistoricalData"
+            }
+          }
+        }
+      },
+      "FreeFlowData": {
+        "type": "object",
+        "properties": {
+          "freeFlowSpeed": {
+            "format": "double",
+            "type": "number"
+          },
+          "freeFlowTravelTime": {
+            "format": "double",
+            "type": "number"
+          },
+          "staticFreeFlowSpeed": {
+            "format": "double",
+            "type": "number"
+          }
+        }
+      },
+      "HistoricalData": {
+        "type": "object",
+        "properties": {
+          "totalRows": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "minDate": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "maxDate": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "hourOfDay": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "dayOfWeekName": {
+            "type": "string"
+          },
+          "meanSpeed": {
+            "format": "double",
+            "type": "number"
+          },
+          "meanTravelTime": {
+            "format": "double",
+            "type": "number"
+          },
+          "percentilesSpeed": {
+            "type": "array",
+            "items": {
+              "format": "double",
+              "type": "number"
+            }
+          },
+          "percentilesTravelTime": {
+            "type": "array",
+            "items": {
+              "format": "double",
+              "type": "number"
+            }
+          }
+        }
+      },
+      "StatsResult": {
+        "type": "object",
+        "properties": {
+          "streetCode": {
+            "type": "string"
+          },
+          "historicalStats": {
+            "$ref": "#/components/schemas/HistoricalStat"
+          },
+          "streetData": {
+            "$ref": "#/components/schemas/NetworkData"
+          }
+        }
+      },
+      "KpiResult": {
+        "type": "object",
+        "properties": {
+          "meta": {
+            "$ref": "#/components/schemas/KpiResultMeta"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/KpiResultData"
+            }
+          }
+        }
+      },
+      "KpiResultData": {
+        "type": "object",
+        "properties": {
+          "progressive": {
+            "format": "double",
+            "type": "number"
+          },
+          "timestamp": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "value": {
+            "format": "double",
+            "type": "number"
+          },
+          "unusualValue": {
+            "format": "double",
+            "type": "number"
+          },
+          "averageValue": {
+            "format": "double",
+            "type": "number"
+          },
+          "status": {
+            "type": "string"
+          }
+        }
+      },
+      "KpiResultMeta": {
+        "type": "object",
+        "properties": {
+          "kpiId": {
+            "type": "string"
+          },
+          "minT": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "maxT": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "result_size": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "defaultValue": {
+            "format": "double",
+            "type": "number"
+          },
+          "pathLength": {
+            "format": "double",
+            "type": "number"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "apiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "apiKey"
+      }
+    }
+  },
+  "security": [
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "servers": [
+    {
+      "url": "https://api.ptvgroup.tech/hda/v1"
+    }
+  ]
+}

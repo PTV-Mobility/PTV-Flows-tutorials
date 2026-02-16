@@ -1,0 +1,28 @@
+
+/python/create_protobuf_street_forecast/bin
+/python/create_protobuf_street_forecast/include
+python/forecast decoding examples/forecast_response
+bi flows/kpistatsAndCurrentValue/kpistatsAndCurrentValue.Report/.pbi/localSettings.json
+bi flows/kpistatsAndCurrentValue/kpistatsAndCurrentValue.Report/.pbi/localSettings.json
+bi flows/kpistatsAndCurrentValue/kpistatsAndCurrentValue.SemanticModel/.pbi/cache.abf
+bi flows/kpistatsAndCurrentValue/kpistatsAndCurrentValue.SemanticModel/.pbi/localSettings.json
+*.pyc
+bi flows/kpistatsAndCurrentValue/kpistatsAndCurrentValue.SemanticModel/.pbi/cache.abf
+bi flows/kpistatsAndCurrentValue/kpistatsAndCurrentValue.SemanticModel/.pbi/cache.abf
+bi flows/kpistatsAndCurrentValue/kpistatsAndCurrentValue.SemanticModel/.pbi/cache.abf
+bi flows/kpistatsAndCurrentValue/kpistatsAndCurrentValue.SemanticModel/.pbi/cache.abf
+bi flows/kpistatsAndCurrentValue/kpistatsAndCurrentValue.SemanticModel/.pbi/cache.abf
+bi flows/kpistatsAndCurrentValue/kpistatsAndCurrentValue.SemanticModel/.pbi/cache.abf
+excel/~$PTV Flows HDA analysis excel tool.xlsx
+/python/network api/.venv
+python/network api/ptv_flows_network_12.442961_41.817077_12.491369_41.845216.csv
+python/network api/ptv_flows_network_12.442961_41.817077_12.491369_41.845216.topojson
+/python/network api/example_output
+python/network api/example_data.csv
+python/network api/plan/plan.txt
+python/realtime api/REFACTORING_SUMMARY.md
+python/realtime api/monitoring_test/monitor_log_20251009_102744.csv
+python/realtime api/monitoring_test/monitoring_summary.txt
+python/realtime api/protoc-29.3-win64.zip
+python/realtime api/README_new.md
+/python/realtime api/test_output

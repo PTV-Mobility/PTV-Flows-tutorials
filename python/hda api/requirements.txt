@@ -1,0 +1,34 @@
+# PTV Flows Historical Data API (HDA) - Requirements
+
+# Core dependencies for PTV Flows HDA API client
+requests>=2.28.0          # HTTP API client for endpoint calls
+pandas>=1.5.0             # Data manipulation and analysis
+numpy>=1.21.0             # Numerical operations and array handling
+pyarrow>=10.0.0           # Parquet file format support
+python-dateutil>=2.8.0    # Enhanced datetime parsing and manipulation
+
+# Geospatial data processing (optional but recommended)
+geopandas>=0.12.0         # Geospatial data structures and operations
+shapely>=1.8.0            # Geometric object manipulation
+
+# Data visualization
+matplotlib>=3.5.0         # Basic plotting capabilities
+plotly>=5.0.0            # Interactive visualizations
+seaborn>=0.11.0          # Statistical data visualization
+folium>=0.12.0           # Interactive maps
+
+# Utility libraries
+tqdm>=4.64.0             # Progress bars for long operations
+click>=8.0.0             # Command-line interface creation
+python-geohash>=0.8.5    # Geohash encoding/decoding
+tabulate>=0.9.0          # Pretty-print tabular data
+
+# Optional: Enhanced data formats
+openpyxl>=3.0.0          # Excel file support
+xlsxwriter>=3.0.0        # Excel file writing with formatting
+
+# Development and testing (optional)
+pytest>=7.0.0            # Testing framework
+pytest-cov>=4.0.0       # Coverage reporting
+black>=22.0.0            # Code formatting
+flake8>=5.0.0           # Code linting

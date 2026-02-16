@@ -1,0 +1,74 @@
+import pandas as pd
+import requests
+import logging
+from datetime import datetime, timedelta
+
+# Enable logging
+import os
+import logging
+
+# Get the user's home directory path
+home_dir = os.path.expanduser("~")
+
+# Construct the complete file path
+log_file_path = os.path.join(home_dir, "bi-log-python.txt")
+
+# Configure logging
+logging.basicConfig(filename=log_file_path, level=logging.INFO, format='%(asctime)s %(levelname)s %(message)s')
+
+
+logging.info("Starting the application")
+
+
+
+API_KEY='" & apikey & "'
+
+# Define the base URLs for the different API endpoints
+KPI_ENG_URL = "https://api.ptvgroup.tech/kpieng/v1/instance/all"
+KPI_HISTORICAL_URL = "https://api.ptvgroup.tech/kpistats/v1/historical/result/by-kpi-id"
+KPI_24HOURS_URL = "https://api.ptvgroup.tech/kpieng/v1/result/by-kpi-id"
+
+
+# Define headers for the API requests
+HEADERS = {
+    "apiKey": API_KEY,
+    "Accept": "*/*",
+    "Connection": "keep-alive"
+}
+
+def extract_timetostart(param_dict):
+    try:
+        return param_dict.get('parameters', {}).get('timetostart', None)
+    except AttributeError:
+        return None
+
+# Fetch all KPI definitions
+def fetch_all_kpis(api_key):
+    try:
+        print("Fetching all KPI definitions...")
+        HEADERS["apiKey"] = api_key
+        response = requests.get(KPI_ENG_URL, headers=HEADERS)
+        response.raise_for_status()  # Raise an exception if the response status code is not 200
+        kpi_data = response.json()
+        kpi_df = pd.DataFrame(kpi_data)
+        kpi_df['timetostart'] = kpi_df['kpiInstanceParameters'].apply(extract_timetostart)
+        print(f"Fetched {len(kpi_df)} KPIs.")
+        print(kpi_df.head())
+        log.debug(kpi_df.head())
+        return kpi_df
+    except requests.RequestException as e:
+        logging.warning(f"Error fetching data: {e}")
+        return None
+# Round datetime to the nearest 5-minute bucket
+def round_to_nearest_5min(timestamp):
+    dt = datetime.fromisoformat(timestamp.replace('Z', '+00:00'))
+    new_minute = (dt.minute // 5) * 5
+    return dt.replace(minute=new_minute, second=0, microsecond=0)
+
+#def main():
+kpi_ids_df = fetch_all_kpis(API_KEY)
+logging.info("Application finished successfully")
+print (kpi_ids_df)
+
+
+

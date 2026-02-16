@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "kpistatsAndCurrentValue"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "c7fc2bb0-5fd7-491b-8d79-ad12e442b116"
+  }
+}

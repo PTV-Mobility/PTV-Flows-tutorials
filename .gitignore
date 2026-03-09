@@ -26,3 +26,4 @@ python/realtime api/monitoring_test/monitoring_summary.txt
 python/realtime api/protoc-29.3-win64.zip
 python/realtime api/README_new.md
 /python/realtime api/test_output
+.vscode/settings.json
